@@ -18,23 +18,23 @@ class HomeHeader extends Component {
                 <form className="home-search">
                   <input type="text" name="q" class="home-search-input"
                     id="header-search-input"
-                    placeholder="Search for health information"
+                    placeholder="Nhập từ khoá tìm kiếm"
                   />
-                  <button className="home-search-btn">Go</button>
+                  <button className="home-search-btn">Đi</button>
                 </form>
 
                 <ul className="home-item">
                   <li className="home-item-select">
-                    <NavLink exact='true' activeClassName="active" to="/">Chuyên Khoa</NavLink>
+                    <NavLink exact='true' activeClassName="active" to="/">Chuyên Khoa khám</NavLink>
                   </li>
                   <li className="home-item-select">
-                    <NavLink exact='true' activeClassName="active" to="/">Chuyên Khoa</NavLink>
+                    <NavLink exact='true' activeClassName="active" to="/">Bác sĩ</NavLink>
                   </li>
                   <li className="home-item-select">
-                    <NavLink exact='true' activeClassName="active" to="/">Chuyên Khoa</NavLink>
+                    <NavLink exact='true' activeClassName="active" to="/">Bệnh viện</NavLink>
                   </li>
                   <li className="home-item-select">
-                    <NavLink exact='true' activeClassName="active" to="/">Chuyên Khoa</NavLink>
+                    <NavLink exact='true' activeClassName="active" to="/">Gói khám bệnh</NavLink>
                   </li>
                 </ul>
               </div>
@@ -42,7 +42,31 @@ class HomeHeader extends Component {
             </div>
           </div>
         </div>
-        <div className="home-header-banner"></div>
+        <div className="home-header-nav">
+          <ul className="home-header-menu">
+            <li className="home-header-item">
+              <NavLink exact='true' activeClassName="active" to="/">Thuốc</NavLink>
+            </li>
+            <li className="home-header-item">
+              <NavLink exact='true' activeClassName="active" to="/">Sức khoẻ</NavLink>
+            </li>
+            <li className="home-header-item">
+              <NavLink exact='true' activeClassName="active" to="/">Sắc đẹp</NavLink>
+            </li>
+            <li className="home-header-item">
+              <NavLink exact='true' activeClassName="active" to="/">Khám bệnh online</NavLink>
+            </li>
+            <li className="home-header-item">
+              <NavLink exact='true' activeClassName="active" to="/">Mua sắm</NavLink>
+            </li>
+            <li className="home-header-item">
+              <NavLink exact='true' activeClassName="active" to="/">Khuyến mại</NavLink>
+            </li>
+            <li className="home-header-item">
+              <NavLink exact='true' activeClassName="active" to="/">Liên hệ</NavLink>
+            </li>
+          </ul>
+        </div>
       </>
     );
   }

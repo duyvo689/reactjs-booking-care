@@ -81,6 +81,7 @@
                         min-height         : 36px;
                         margin-left        : 5px;
                         vertical-align     : top;
+                        min-width          : 56px;
                     }
 
                     .home-search-btn:hover {
@@ -124,6 +125,9 @@
                             padding           : 11px 18px;
                             min-height        : 36px;
                             margin            : 0 0 0 5px;
+                            min-width         : 108px;
+                            text-align        : center;
+
                         }
                     }
 
@@ -132,6 +136,41 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.home-header-nav {
+    height    : 52px;
+    width     : 100%;
+    background: #e5f5f4;
+    box-shadow: 3px 6px 14px #e4e1e1;
+
+    .home-header-menu {
+        max-width      : 1020px;
+        display        : flex;
+        padding        : 0 15px;
+        margin-left    : auto;
+        margin-right   : auto;
+        list-style     : none;
+        justify-content: space-between;
+
+        .home-header-item {
+            display    : inline-block;
+            line-height: 52px;
+
+            a {
+                color      : #006060;
+                font-size  : 13.5px;
+                font-weight: 600;
+                padding    : 0 26px;
+                text-align : center;
+
+            }
+        }
+
+        .home-header-item:hover {
+            background: #fff;
         }
     }
 }
