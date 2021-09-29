@@ -8,9 +8,9 @@
         max-width       : 500px;
         min-width       : 300px;
         max-height      : 700px;
-        min-height      : 390px;
+        min-height      : 420px;
         width           : 28%;
-        height          : 60%;
+        height          : 64%;
         background-color: #FFFFFF;
         border-radius   : 25px;
         top             : 50%;
@@ -62,6 +62,35 @@
                     outline   : none;
                 }
 
+                .custom-input-password {
+                    position: relative;
+                    width   : 80%;
+
+                    input {
+                        width         : 100%;
+                        box-sizing    : border-box;
+                        border        : none;
+                        font-size     : 1.3rem;
+                        padding-left  : 1.5rem;
+                        padding-bottom: 1rem;
+                        box-shadow    : inset 0px -3px 0px 0px rgba(187, 187, 187, 0.2);
+                        transition    : box-shadow 0.2s ease-in;
+                    }
+
+                    input:focus {
+                        box-shadow: inset 0px -3px 0px 0px rgba(34, 193, 195, 0.7);
+                        outline   : none;
+                    }
+
+                    i {
+                        position: absolute;
+                        right   : 0;
+                        cursor  : pointer;
+                    }
+
+
+                }
+
                 button {
                     border-radius: 25px;
                     width        : 80%;
@@ -82,21 +111,34 @@
                 }
             }
 
+            .login-forgot-password {
+                align-self  : start;
+                padding-left: 4.5rem;
+                margin-top  : 12px;
+                color       : rgba(66, 63, 63, 0.9);
+                cursor      : pointer;
+                opacity     : 0.6;
+            }
+
+            .login-forgot-password:hover {
+                opacity: 1;
+            }
+
             .login-with {
                 text-align: center;
-                margin-top: 28px;
-                opacity   : 0.8;
+                margin-top: 20px;
+                opacity   : 0.6;
                 cursor    : pointer;
             }
 
             .login-with:hover {
-                opacity: 1;
+                opacity: 0.9;
             }
 
             .login-social {
                 display        : flex;
                 justify-content: center;
-                margin-top     : 20px;
+                margin-top     : 16px;
 
                 i {
                     font-size: 3rem;
