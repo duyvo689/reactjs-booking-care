@@ -28,13 +28,13 @@ class HomeHeader extends Component {
                     <NavLink exact='true' activeClassName="active" to="/">Chuyên Khoa khám</NavLink>
                   </li>
                   <li className="home-item-select">
-                    <NavLink exact='true' activeClassName="active" to="/">Bác sĩ</NavLink>
+                    <NavLink activeClassName="active" to="/">Bác sĩ</NavLink>
                   </li>
                   <li className="home-item-select">
-                    <NavLink exact='true' activeClassName="active" to="/">Bệnh viện</NavLink>
+                    <NavLink activeClassName="active" to="/">Bệnh viện</NavLink>
                   </li>
                   <li className="home-item-select">
-                    <NavLink exact='true' activeClassName="active" to="/">Gói khám bệnh</NavLink>
+                    <NavLink activeClassName="active" to="/">Gói khám bệnh</NavLink>
                   </li>
                 </ul>
               </div>
@@ -48,22 +48,22 @@ class HomeHeader extends Component {
               <NavLink exact='true' activeClassName="active" to="/">Thuốc</NavLink>
             </li>
             <li className="home-header-item">
-              <NavLink exact='true' activeClassName="active" to="/">Sức khoẻ</NavLink>
+              <NavLink activeClassName="active" to="/">Sức khoẻ</NavLink>
             </li>
             <li className="home-header-item">
-              <NavLink exact='true' activeClassName="active" to="/">Sắc đẹp</NavLink>
+              <NavLink activeClassName="active" to="/">Sắc đẹp</NavLink>
             </li>
             <li className="home-header-item">
-              <NavLink exact='true' activeClassName="active" to="/">Khám bệnh online</NavLink>
+              <NavLink activeClassName="active" to="/">Khám bệnh online</NavLink>
             </li>
             <li className="home-header-item">
-              <NavLink exact='true' activeClassName="active" to="/">Mua sắm</NavLink>
+              <NavLink activeClassName="active" to="/">Mua sắm</NavLink>
             </li>
             <li className="home-header-item">
-              <NavLink exact='true' activeClassName="active" to="/">Khuyến mại</NavLink>
+              <NavLink activeClassName="active" to="/">Khuyến mại</NavLink>
             </li>
             <li className="home-header-item">
-              <NavLink exact='true' activeClassName="active" to="/">Liên hệ</NavLink>
+              <NavLink activeClassName="active" to="/">Liên hệ</NavLink>
             </li>
           </ul>
         </div>
