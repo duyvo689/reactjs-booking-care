@@ -6,15 +6,17 @@ import * as actions from "../../store/actions";
 
 import './Login.scss';
 import { FormattedMessage } from 'react-intl';
+import { handleLoginApi } from '../../services/userService';
 
 
 class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: 'duy vo',
-            password: '123456',
+            username: '',
+            password: '',
             isShowPassword: false,
+            errMessage: '',
         }
     }
 
@@ -22,19 +24,39 @@ class Login extends Component {
         this.setState({
             username: event.target.value
         })
-        console.log(event.target.value)
     }
 
     handleOnChangePassword = (event) => {
         this.setState({
             password: event.target.value
         })
-        console.log(event.target.value)
     }
 
-    handleOnClick = () => {
-        console.log(this.state.username)
-        console.log(this.state.password)
+    handleLogin = async () => {
+        this.setState({
+            errMessage: ''
+        })
+        try {
+            let data = await handleLoginApi(this.state.username, this.state.password)
+            if (data && data.message !== 0) {
+                this.setState({
+                    errMessage: data.message
+                })
+            }
+            if (data && data.message == 0) {
+                console.log('Đăng nhập thành công!')
+            }
+        } catch (e) {
+
+            console.log(e.response.data)
+            if (e.response) {
+                if (e.response.data) {
+                    this.setState({
+                        errMessage: e.response.data.message
+                    })
+                }
+            }
+        }
 
     }
 
@@ -45,7 +67,6 @@ class Login extends Component {
     }
 
     render() {
-
         return (
             <div className='login-backgroud'>
                 <div className='login-container'>
@@ -65,14 +86,17 @@ class Login extends Component {
                                     description="Password"
                                     placeholder="Enter your password"
                                     type={this.state.isShowPassword ? 'text' : 'password'}
-                                    value={this.state.password}
+                                    // value={this.state.password}
                                     onChange={(event) => this.handleOnChangePassword(event)}
                                 />
                                 <span onClick={() => this.handleShowHidePassword()}>
                                     <i className={this.state.isShowPassword ? 'far fa-eye' : 'far fa-eye-slash'}></i>
                                 </span>
                             </div>
-                            <button type="submit" onClick={() => this.handleOnClick()}>Login</button>
+                            <div className='login-title-err' style={{ color: 'red' }}>
+                                {this.state.errMessage}
+                            </div>
+                            <button onClick={() => this.handleLogin()}>Login</button>
                         </div>
                         <div className='login-forgot-password'>Forgot password?</div>
 

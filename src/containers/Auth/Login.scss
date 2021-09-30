@@ -91,6 +91,11 @@
 
                 }
 
+                .login-title-err {
+                    margin-top: 18px;
+                    font-size : 1.2rem;
+                }
+
                 button {
                     border-radius: 25px;
                     width        : 80%;
@@ -103,7 +108,7 @@
                     border       : 0px;
                     cursor       : pointer;
                     transition   : opacity 0.25s ease-out;
-                    margin-top   : 30px;
+                    margin-top   : 20px;
                 }
 
                 button:hover {
