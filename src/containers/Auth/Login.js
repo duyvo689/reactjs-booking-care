@@ -44,6 +44,7 @@ class Login extends Component {
                 })
             }
             if (data && data.message == 0) {
+                this.props.userLoginSuccess(data.user)
                 console.log('Đăng nhập thành công!')
             }
         } catch (e) {
@@ -122,8 +123,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         navigate: (path) => dispatch(push(path)),
-        adminLoginSuccess: (adminInfo) => dispatch(actions.adminLoginSuccess(adminInfo)),
-        adminLoginFail: () => dispatch(actions.adminLoginFail()),
+        // userLoginFail: () => dispatch(actions.adminLoginFail()),
+        userLoginSuccess: (userInfo) => dispatch(actions.userLoginSuccess(userInfo))
     };
 };
 
