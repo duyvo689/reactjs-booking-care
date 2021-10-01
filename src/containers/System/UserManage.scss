@@ -74,3 +74,57 @@
     background-color: #04AA6D;
     color           : white;
 }
+
+.modal-user-container {
+
+    .form-input {
+        display       : flex;
+        flex-direction: column;
+
+        .input-cover {
+            display       : flex;
+            flex-direction: row;
+
+            .input-1 {
+                display       : flex;
+                width         : 50%;
+                flex-direction: column;
+
+                label {
+                    margin: 10px 10px 0;
+
+                }
+
+                input {
+                    margin: 0 10px;
+                }
+            }
+        }
+
+        .input-2 {
+            display       : flex;
+            width         : 100%;
+            flex-direction: column;
+
+            label {
+                margin: 10px 10px 0;
+            }
+
+            input {
+                margin: 0 10px;
+            }
+        }
+
+    }
+
+    .btn-submit {
+        padding  : 0 12px;
+        min-width: 100px;
+    }
+
+    .btn-cancel {
+        padding: 0 12px;
+    }
+
+
+}
