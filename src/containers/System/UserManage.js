@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import "./UserManage.scss"
-import { getAllUsers } from '../../services/userService'
+import { getAllUsers, createNewUserService } from '../../services/userService'
 import ModalUser from './ModalUser';
 
 class UserManage extends Component {
@@ -16,14 +15,17 @@ class UserManage extends Component {
     }
 
     async componentDidMount() {
+        await this.getAllUserFromReact()
+    }
+
+    getAllUserFromReact = (async () => {
         let response = await getAllUsers('ALL')
-        console.log('data ne: ', response)
-        if (response && response.errCode == 0) {
+        if (response && response.errCode === 0) {
             this.setState({
                 allUsers: response.users
-            }, () => { console.log('data 2: ', this.state.allUsers) })
+            })
         }
-    }
+    })
 
     handleAddUser = (() => {
         this.setState({
@@ -37,6 +39,21 @@ class UserManage extends Component {
         })
     })
 
+    createNewUser = async (data) => {
+        console.log(data)
+        try {
+            let response = await createNewUserService(data)
+            if (response && response.errCode !== 0) {
+                alert(response.errMessage)
+            } else {
+                this.getAllUserFromReact()
+                this.toggleModal()
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     render() {
 
         return (
@@ -44,6 +61,7 @@ class UserManage extends Component {
                 <ModalUser
                     isOpen={this.state.isModalOpen}
                     toggleModal={this.toggleModal}
+                    createNewUser={this.createNewUser}
                 />
                 <div className="btn-add-user" onClick={() => this.handleAddUser()}>
                     <i className="fas fa-plus"></i>

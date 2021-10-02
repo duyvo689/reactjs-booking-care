@@ -6,6 +6,11 @@ class ProductManage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            email: '',
+            password: '',
+            firstName: '',
+            lastName: '',
+            address: ''
         }
     }
 
@@ -15,7 +20,36 @@ class ProductManage extends Component {
     toggle = () => {
         this.props.toggleModal()
     }
+
+    handleOnchangeInput = (event, id) => {
+        let coppyState = { ...this.state }
+        coppyState[id] = event.target.value
+        this.setState({
+            ...coppyState
+        })
+    }
+
+    checkValidate = () => {
+        let checkInput = true
+        let arrInput = ['email', 'password', 'firstName', 'lastName', 'address']
+        for (let i = 0; i < arrInput.length; i++) {
+            if (!this.state[arrInput[i]]) {
+                checkInput = false
+                alert(`Thiếu thông tin ${arrInput[i]}`)
+                break
+            }
+        }
+        return checkInput
+    }
+
+    handleAddNewUser = () => {
+        let isValid = this.checkValidate()
+        if (isValid === true) {
+            this.props.createNewUser(this.state)
+        }
+    }
     render() {
+
         return (
             < div >
                 <Modal isOpen={this.props.isOpen}
@@ -30,32 +64,52 @@ class ProductManage extends Component {
                             <div className="input-cover">
                                 <div className="input-1">
                                     <label>Email</label>
-                                    <input type='email' placeholder='Nhap email' />
+                                    <input
+                                        type='email' placeholder='Nhap email'
+                                        value={this.state.email}
+                                        onChange={(event) => this.handleOnchangeInput(event, "email")}
+                                    />
                                 </div>
 
                                 <div className="input-1">
                                     <label>Password</label>
-                                    <input type='password' placeholder='Nhap password' />
+                                    <input
+                                        type='password' placeholder='Nhap password'
+                                        value={this.state.password}
+                                        onChange={(event) => this.handleOnchangeInput(event, "password")}
+                                    />
                                 </div>
                             </div>
                             <div className="input-cover">
                                 <div className="input-1">
                                     <label>First Name</label>
-                                    <input type='text' placeholder='Nhap first name' />
+                                    <input
+                                        type='text' placeholder='Nhap first name'
+                                        value={this.state.firstName}
+                                        onChange={(event) => this.handleOnchangeInput(event, "firstName")}
+                                    />
                                 </div>
                                 <div className="input-1">
                                     <label>Last Name</label>
-                                    <input type='text' placeholder='Nhap last name' />
+                                    <input
+                                        type='text' placeholder='Nhap last name'
+                                        value={this.state.lastName}
+                                        onChange={(event) => this.handleOnchangeInput(event, "lastName")}
+                                    />
                                 </div>
                             </div>
                             <div className="input-2">
                                 <label>Address</label>
-                                <input type='text' placeholder='Nhap address' />
+                                <input
+                                    type='text' placeholder='Nhap address'
+                                    value={this.state.address}
+                                    onChange={(event) => this.handleOnchangeInput(event, "address")}
+                                />
                             </div>
                         </div>
                     </ModalBody>
                     <ModalFooter>
-                        <Button className="btn-submit" color="primary" onClick={() => this.toggle()}>Submit</Button>{' '}
+                        <Button className="btn-submit" color="primary" onClick={() => this.handleAddNewUser()}>Submit</Button>{' '}
                         <Button className="btn-cancel" color="secondary" onClick={() => this.toggle()}>Cancel</Button>
                     </ModalFooter>
                 </Modal>
