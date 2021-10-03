@@ -1,6 +1,8 @@
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { emitter } from '../../utils/emitter';
+
 class ProductManage extends Component {
 
     constructor(props) {
@@ -12,6 +14,21 @@ class ProductManage extends Component {
             lastName: '',
             address: ''
         }
+        this.listenToEmitter()
+    }
+
+    //Dùng emitter để clear data tại form tạo user
+    listenToEmitter() {
+        emitter.on('EVENT_CLEAR_MODAL_DATA', data => {
+            console.log(data)
+            this.setState({
+                email: '',
+                password: '',
+                firstName: '',
+                lastName: '',
+                address: ''
+            })
+        })
     }
 
     componentDidMount() {

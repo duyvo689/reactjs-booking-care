@@ -4,6 +4,7 @@ import "./UserManage.scss"
 import { getAllUsers, createNewUserService, deleteUserService, editUserService } from '../../services/userService'
 import ModalUser from './ModalUser';
 import ModalEditUser from './ModalEditUser';
+import { emitter } from '../../utils/emitter';
 
 class UserManage extends Component {
 
@@ -56,6 +57,7 @@ class UserManage extends Component {
             } else {
                 this.getAllUserFromReact()
                 this.toggleModal()
+                emitter.emit('EVENT_CLEAR_MODAL_DATA', { 'id': 'your id' })
             }
         } catch (e) {
             console.log(e)
