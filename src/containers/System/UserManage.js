@@ -77,7 +77,6 @@ class UserManage extends Component {
         }
     }
 
-
     handleEditUser = ((user) => {
 
         this.setState({
