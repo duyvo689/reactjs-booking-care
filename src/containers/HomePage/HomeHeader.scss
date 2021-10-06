@@ -1,176 +1,145 @@
-.home-header-container {
-    width     : 100%;
-    height    : 154px;
-    background: #1db1a8;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
-    .home-header-content {
-        width  : 100%;
-        height : 100%;
-        display: flex;
-
-        .home-left-content {
-            display    : flex;
-            align-items: center;
-            width      : 100%;
-            cursor     : pointer;
-
-            .home-logo {
-                background     : url(../../assets/logo.png) center no-repeat;
-                display        : block;
-                max-width      : 230px;
-                width          : 100%;
-                height         : 100%;
-                object-fit     : cover;
-                background-size: 226px auto;
-                margin-top     : 30px;
-
-            }
-        }
-
-        .home-right-content {
-            display: block;
-
-            .home-right-content-cover {
-                float     : right;
-                height    : auto;
-                margin-top: 36px;
-                text-align: right;
-
-                .home-search {
-                    display        : flex;
-                    justify-content: end;
-
-
-                    .home-search-input {
-                        background-image   : url(../../assets/search.png);
-                        border             : 1px solid #6e6e6e;
-                        border-radius      : 5px;
-                        padding            : 10px;
-                        background-color   : #fff;
-                        font-size          : 13px;
-                        height             : 36px;
-                        width              : 100%;
-                        box-sizing         : border-box;
-                        background-repeat  : no-repeat;
-                        background-position: 5px center;
-                        padding-left       : 30px;
-                        background-size    : 20px;
-                        width              : 310px;
-                    }
-
-                    .home-search-btn {
-                        -moz-appearance    : none;
-                        appearance         : none;
-                        box-sizing         : border-box;
-                        // background-color: rgba(0, 0, 0, 0);
-                        border-radius      : 0;
-                        border             : 0;
-                        padding            : 0;
-                        cursor             : pointer;
-                        position           : relative;
-                        display            : inline-block;
-                        background-color   : #147b74;
-                        color              : #fff;
-                        font-weight        : 700;
-                        transition         : background-color .2s;
-                        height             : auto;
-                        border-radius      : 6px;
-                        font-size          : 14px;
-                        line-height        : 1;
-                        padding            : 11px 18px;
-                        min-height         : 36px;
-                        margin-left        : 5px;
-                        vertical-align     : top;
-                        min-width          : 56px;
-                    }
-
-                    .home-search-btn:hover {
-                        background: #005a5a;
-                    }
-
-                }
-
-                .home-item {
-                    margin-block-start  : 1em;
-                    margin-block-end    : 1em;
-                    margin-inline-start : 0px;
-                    margin-inline-end   : 0px;
-                    padding-inline-start: 40px;
-                    display             : flex;
-                    margin-top          : 23px;
-
-                    .home-item-select {
-                        list-style: none;
-
-                        a {
-                            -webkit-appearance: none;
-                            -moz-appearance   : none;
-                            appearance        : none;
-                            box-sizing        : border-box;
-                            background-color  : rgba(0, 0, 0, 0);
-                            border-radius     : 0;
-                            border            : 0;
-                            padding           : 0;
-                            cursor            : pointer;
-                            position          : relative;
-                            display           : inline-block;
-                            background-color  : #fff;
-                            color             : #147b74;
-                            font-weight       : 700;
-                            transition        : background-color .2s;
-                            height            : auto;
-                            border-radius     : 6px;
-                            font-size         : 14px;
-                            line-height       : 1;
-                            padding           : 11px 18px;
-                            min-height        : 36px;
-                            margin            : 0 0 0 5px;
-                            min-width         : 108px;
-                            text-align        : center;
-
-                        }
-                    }
-
-                    .home-item-select :hover {
-                        background: #e5f5f4;
-                    }
-                }
-            }
-        }
-    }
+:root {
+    --orange       : #ff7800;
+    --black        : #130f40;
+    --light-color  : #666;
+    --box-shadow   : 0 .5rem 1.5rem rgba(0, 0, 0, .1);
+    --border       : .2rem solid rgba(0, 0, 0, .1);
+    --outline      : .1rem solid rgba(0, 0, 0, .1);
+    --outline-hover: .2rem solid var(--black);
 }
 
-.home-header-nav {
-    height    : 52px;
-    width     : 100%;
-    background: #e5f5f4;
-    box-shadow: 3px 6px 14px #e4e1e1;
+* {
+    font-family    : 'Poppins', sans-serif;
+    margin         : 0;
+    padding        : 0;
+    box-sizing     : border-box;
+    outline        : none;
+    border         : none;
+    text-decoration: none;
+    text-transform : capitalize;
+    transition     : all .2s linear;
+}
 
-    .home-header-menu {
-        max-width      : 1020px;
-        display        : flex;
-        padding        : 0 15px;
-        margin-left    : auto;
-        margin-right   : auto;
-        list-style     : none;
-        justify-content: space-between;
+html {
+    font-size         : 62.5%;
+    overflow-x        : hidden;
+    scroll-behavior   : smooth;
+    scroll-padding-top: 7rem;
+}
 
-        .home-header-item {
-            display    : inline-block;
-            line-height: 52px;
+body {
+    background: #eee;
+}
 
-            a {
-                color      : #006060;
-                font-size  : 13.5px;
-                font-weight: 600;
-                padding    : 0 26px;
-                text-align : center;
+section {
+    padding: 2rem 9%;
+}
 
-            }
-        }
+.heading {
+    text-align    : center;
+    padding       : 2rem 0;
+    padding-bottom: 3rem;
+    font-size     : 3.5rem;
+    color         : var(--black);
+}
 
-        .home-header-item:hover {
-            background: #fff;
+.header {
+    position       : fixed;
+    top            : 0;
+    left           : 0;
+    right          : 0;
+    z-index        : 1000;
+    display        : flex;
+    align-items    : center;
+    justify-content: space-between;
+    padding        : 2rem 9%;
+    background     : #fff;
+    box-shadow     : var(--box-shadow);
+
+    .logo {
+        font-size  : 2.5rem;
+        font-weight: bolder;
+        color      : var(--black);
+
+        i {
+            color: var(--orange);
         }
     }
+
+    .navbar a {
+        font-size: 1.7rem;
+        margin   : 0 1rem;
+        color    : var(--black);
+    }
+
+    .navbar a:hover {
+        color: var(--orange);
+    }
+
+    .icons div {
+        height       : 4.5rem;
+        width        : 4.5rem;
+        line-height  : 4.5rem;
+        border-radius: .5rem;
+        background   : #eee;
+        color        : var(--black);
+        font-size    : 2rem;
+        margin-left  : .3rem;
+        cursor       : pointer;
+        text-align   : center;
+    }
+
+    .icons div:hover {
+        background: var(--orange);
+        color     : #fff;
+    }
+
+    .search-form {
+        position     : absolute;
+        top          : 110%;
+        right        : -110%;
+        width        : 50rem;
+        height       : 5rem;
+        background   : #fff;
+        border-radius: .5rem;
+        overflow     : hidden;
+        display      : flex;
+        align-items  : center;
+        box-shadow   : var(--box-shadow);
+
+
+
+        input {
+            height        : 100%;
+            width         : 100%;
+            background    : none;
+            text-transform: none;
+            font-size     : 1.6rem;
+            color         : var(--black);
+            padding       : 0 1.5rem;
+        }
+
+        label {
+            font-size    : 2.2rem;
+            padding-right: 1.5rem;
+            color        : var(--black);
+            cursor       : pointer;
+        }
+
+        label:hover {
+            color: var(--orange);
+        }
+    }
+
+    .active {
+        right     : 2rem;
+        transition: .4s linear;
+    }
+
+}
+
+#menu-btn {
+    display: none;
 }

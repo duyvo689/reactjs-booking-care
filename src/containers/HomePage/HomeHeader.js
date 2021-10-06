@@ -2,70 +2,48 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "reactstrap";
 import "./HomeHeader.scss";
-import "../../containers/Base.scss"
 
 class HomeHeader extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isSearch: false
+    }
+  }
+
+  handleSearchForm = () => {
+    this.setState({
+      isSearch: !this.state.isSearch
+    }, () => console.log(this.state.isSearch))
+  }
   render() {
     return (
       <>
-        <div className="home-header-container">
-          <div className="home-header-content grid">
-            <div className="home-left-content col c-3">
-              <div className="home-logo"></div>
-            </div>
-            <div className="home-right-content col c-9">
-              <div className="home-right-content-cover">
-                <form className="home-search">
-                  <input type="text" name="q" class="home-search-input"
-                    id="header-search-input"
-                    placeholder="Nhập từ khoá tìm kiếm"
-                  />
-                  <button className="home-search-btn">Đi</button>
-                </form>
+        <div className="header">
 
-                <ul className="home-item">
-                  <li className="home-item-select">
-                    <NavLink exact='true' activeClassName="active" to="/">Chuyên Khoa khám</NavLink>
-                  </li>
-                  <li className="home-item-select">
-                    <NavLink activeClassName="active" to="/">Bác sĩ</NavLink>
-                  </li>
-                  <li className="home-item-select">
-                    <NavLink activeClassName="active" to="/">Bệnh viện</NavLink>
-                  </li>
-                  <li className="home-item-select">
-                    <NavLink activeClassName="active" to="/">Gói khám bệnh</NavLink>
-                  </li>
-                </ul>
-              </div>
+          <a href="#" className="logo"> <i className="fas fa-shopping-basket"></i> groco </a>
 
-            </div>
+          <nav className="navbar">
+            <a href="#home">home</a>
+            <a href="#features">features</a>
+            <a href="#products">products</a>
+            <a href="#categories">categories</a>
+            <a href="#review">review</a>
+            <a href="#blogs">blogs</a>
+          </nav>
+
+          <div className="icons">
+            <div className="fas fa-bars" id="menu-btn"></div>
+            <div onClick={() => this.handleSearchForm()} className="fas fa-search" id="search-btn"></div>
+            <div className="fas fa-shopping-cart" id="cart-btn"></div>
+            <div className="fas fa-user" id="login-btn"></div>
           </div>
-        </div>
-        <div className="home-header-nav">
-          <ul className="home-header-menu">
-            <li className="home-header-item">
-              <NavLink exact='true' activeClassName="active" to="/">Thuốc</NavLink>
-            </li>
-            <li className="home-header-item">
-              <NavLink activeClassName="active" to="/">Sức khoẻ</NavLink>
-            </li>
-            <li className="home-header-item">
-              <NavLink activeClassName="active" to="/">Sắc đẹp</NavLink>
-            </li>
-            <li className="home-header-item">
-              <NavLink activeClassName="active" to="/">Khám bệnh online</NavLink>
-            </li>
-            <li className="home-header-item">
-              <NavLink activeClassName="active" to="/">Mua sắm</NavLink>
-            </li>
-            <li className="home-header-item">
-              <NavLink activeClassName="active" to="/">Khuyến mại</NavLink>
-            </li>
-            <li className="home-header-item">
-              <NavLink activeClassName="active" to="/">Liên hệ</NavLink>
-            </li>
-          </ul>
+
+          <form action="" className={`search-form ${this.state.isSearch ? `active` : ''}`}>
+            <input type="search" id="search-box" placeholder="search here..." />
+            <label for="search-box" className="fas fa-search"></label>
+          </form>
         </div>
       </>
     );
