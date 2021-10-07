@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 import { NavLink } from "reactstrap";
 import "./HomeHeader.scss";
 import { FormattedMessage } from 'react-intl';
+import { languages } from "../../utils"
+
+import { changeLanguageApp } from "../../store/actions"
 
 
 class HomeHeader extends Component {
@@ -12,7 +15,8 @@ class HomeHeader extends Component {
     this.state = {
       isSearch: false,
       isLogin: false,
-      isVI: false
+      isVI: true,
+      isEN: false
     }
   }
 
@@ -32,11 +36,15 @@ class HomeHeader extends Component {
     })
   }
 
-  handleLanguage = () => {
+  handleLanguage = (language) => {
+    // alert(language)
+    this.props.changeLanguageAppRedux(language)
     this.setState({
-      isVI: !this.state.isVI
+      isVI: !this.state.isVI,
+      isEN: !this.state.isEN,
     })
   }
+
 
   render() {
     console.log("check props: ", this.props)
@@ -56,8 +64,8 @@ class HomeHeader extends Component {
           </nav>
 
           <div className="language">
-            <div onClick={() => this.handleLanguage()} className={this.state.isVI ? `active` : ''}>VI</div>
-            <div onClick={() => this.handleLanguage()} className={this.state.isVI ? `active` : ''}>EN</div>
+            <div onClick={() => this.handleLanguage(languages.VI)} className={this.state.isVI ? `active` : ''}>VI</div>
+            <div onClick={() => this.handleLanguage(languages.EN)} className={this.state.isEN ? `active` : ''}>EN</div>
           </div>
           <div className="icons">
             <div className="fas fa-bars" id="menu-btn"></div>
@@ -112,7 +120,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language))
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
