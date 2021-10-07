@@ -1,4 +1,20 @@
 {
+    "homeheader": {
+        "home": "home",
+        "booking": "booking",
+        "clinic": "clinic",
+        "specialty": "specialty",
+        "doctors": "doctors",
+        "blogs": "blogs",
+        "search": "search here..."
+    },
+    "banner": {
+        "slogan-1": "Medical",
+        "slogan-2": "Examination",
+        "slogan-3": "Services For You",
+        "title": "It Would Be Nice If More Healthcare Centers Focus On Good Health And Less On Treating Disease.",
+        "btn-banner": "user now"
+    },
     "common": {
         "add": "Add",
         "edit": "Edit",

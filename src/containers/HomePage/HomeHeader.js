@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "reactstrap";
 import "./HomeHeader.scss";
+import { FormattedMessage } from 'react-intl';
+
 
 class HomeHeader extends Component {
 
@@ -9,7 +11,8 @@ class HomeHeader extends Component {
     super(props);
     this.state = {
       isSearch: false,
-      isLogin: false
+      isLogin: false,
+      isVI: false
     }
   }
 
@@ -28,7 +31,15 @@ class HomeHeader extends Component {
 
     })
   }
+
+  handleLanguage = () => {
+    this.setState({
+      isVI: !this.state.isVI
+    })
+  }
+
   render() {
+    console.log("check props: ", this.props)
     return (
       <>
         <div className="header">
@@ -36,23 +47,36 @@ class HomeHeader extends Component {
           <a href="#" className="logo"> <i className="fas fa-hospital-alt"></i> groco </a>
 
           <nav className="navbar">
-            <a href="#home">home</a>
-            <a href="#features">booking</a>
-            <a href="#products">clinic</a>
-            <a href="#categories">specialty</a>
-            <a href="#review">doctors</a>
-            <a href="#blogs">blogs</a>
+            <a href="#home"><FormattedMessage id="homeheader.home" /></a>
+            <a href="#features"><FormattedMessage id="homeheader.booking" /></a>
+            <a href="#products"><FormattedMessage id="homeheader.clinic" /></a>
+            <a href="#categories"><FormattedMessage id="homeheader.specialty" /></a>
+            <a href="#review"><FormattedMessage id="homeheader.doctors" /></a>
+            <a href="#blogs"><FormattedMessage id="homeheader.blogs" /></a>
           </nav>
 
+          <div className="language">
+            <div onClick={() => this.handleLanguage()} className={this.state.isVI ? `active` : ''}>VI</div>
+            <div onClick={() => this.handleLanguage()} className={this.state.isVI ? `active` : ''}>EN</div>
+          </div>
           <div className="icons">
             <div className="fas fa-bars" id="menu-btn"></div>
             <div onClick={() => this.handleSearchForm()} className="fas fa-search" id="search-btn"></div>
-            <div className="fas fa-shopping-cart" id="cart-btn"></div>
             <div onClick={() => this.handleLoginForm()} className="fas fa-user" id="login-btn"></div>
           </div>
 
+
           <form action="" className={`search-form ${this.state.isSearch ? `active` : ''}`}>
-            <input type="search" id="search-box" placeholder="search here..." />
+            {/* <FormattedMessage id="homeheader.search" />
+            {placeholder =>
+              <input
+                className="search-input"
+                placeholder={placeholder}
+                type="search"
+                id="search-box"
+              />
+            } */}
+            <input type="search" id="search-box" placeholder="search here.." />
             <label htmlFor="search-box" className="fas fa-search"></label>
           </form>
 
@@ -69,9 +93,9 @@ class HomeHeader extends Component {
         <section className="home" id="home">
 
           <div className="content">
-            <h3>medical  <span>examination</span>  services for you</h3>
-            <p>It would be nice if more healthcare centers focus on good health and less on treating disease.</p>
-            <a href="#" className="btn-login">use now</a>
+            <h3><FormattedMessage id="banner.slogan-1" />  <span><FormattedMessage id="banner.slogan-2" /> </span><FormattedMessage id="banner.slogan-3" /> </h3>
+            <p><FormattedMessage id="banner.title" /> </p>
+            <a href="#" className="btn-login"><FormattedMessage id="banner.btn-banner" /> </a>
           </div>
 
         </section>
@@ -83,6 +107,7 @@ class HomeHeader extends Component {
 const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.user.isLoggedIn,
+    language: state.app.language,
   };
 };
 

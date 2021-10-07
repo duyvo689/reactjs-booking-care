@@ -1,4 +1,20 @@
 {
+    "homeheader": {
+        "home": "nhà",
+        "booking": "đặt lịch",
+        "clinic": "phòng khám",
+        "specialty": "chuyên khoa",
+        "doctors": "bác sĩ",
+        "blogs": "bài viết",
+        "search": "tìm kiếm tại đây..."
+    },
+    "banner": {
+        "slogan-1": "dịch vụ",
+        "slogan-2": "đặt lịch",
+        "slogan-3": "khám bệnh cho bạn",
+        "title": "sẽ thật tuyệt nếu nhiều trung tâm chăm sóc sức khỏe tập trung vào sức khỏe tốt và ít hơn vào điều trị bệnh.",
+        "btn-banner": "dùng ngay"
+    },
     "common": {
         "add": "Thêm",
         "edit": "Sửa",
