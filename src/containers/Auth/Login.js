@@ -42,7 +42,7 @@ class Login extends Component {
                     errMessage: data.message
                 })
             }
-            if (data && data.message == 0) {
+            if (data && data.message === 0) {
                 this.props.userLoginSuccess(data.user)
                 console.log('Đăng nhập thành công!')
             }
