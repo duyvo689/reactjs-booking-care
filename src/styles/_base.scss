@@ -3,6 +3,7 @@
  */
 body,
 html {
+  background       : #eee;
   background-image : "#fff";
   background-repeat: no-repeat;
   background-size  : cover;
@@ -12,21 +13,38 @@ html {
   overflow         : hidden;
 }
 
-.btn {
-  padding            : 0;
-  border             : none;
-  cursor             : pointer;
-  font-weight        : 700;
-  height             : 30px;
-  line-height        : 30px;
-  -moz-user-select   : none;
-  -webkit-user-select: none;
-  user-select        : none;
-
-  i {
-    font-size: $base-size - 3px;
-  }
+section {
+  padding: 2rem 9%;
 }
+
+* {
+  // font-family    : 'Poppins', sans-serif;
+  font-family    : 'Roboto', sans-serif;
+  margin         : 0;
+  padding        : 0;
+  box-sizing     : border-box;
+  outline        : none;
+  border         : none;
+  text-decoration: none !important;
+  text-transform : capitalize;
+  transition     : all .2s linear;
+}
+
+// .btn {
+//   padding            : 0;
+//   border             : none;
+//   cursor             : pointer;
+//   font-weight        : 700;
+//   height             : 30px;
+//   line-height        : 30px;
+//   -moz-user-select   : none;
+//   -webkit-user-select: none;
+//   user-select        : none;
+
+//   i {
+//     font-size: $base-size - 3px;
+//   }
+// }
 
 .btn-edit,
 .btn-add,
