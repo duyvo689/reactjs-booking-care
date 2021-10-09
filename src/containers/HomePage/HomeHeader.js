@@ -51,31 +51,32 @@ class HomeHeader extends Component {
     return (
       <>
         <div className="header">
+          <div className="grid-header">
 
-          <a href="#" className="logo"> <i className="fas fa-hospital-alt"></i> groco </a>
+            <a href="#" className="logo"> <i className="fas fa-hospital-alt"></i> groco </a>
 
-          <nav className="navbar">
-            <a href="#home"><FormattedMessage id="homeheader.home" /></a>
-            <a href="#features"><FormattedMessage id="homeheader.booking" /></a>
-            <a href="#products"><FormattedMessage id="homeheader.clinic" /></a>
-            <a href="#categories"><FormattedMessage id="homeheader.specialty" /></a>
-            <a href="#review"><FormattedMessage id="homeheader.doctors" /></a>
-            <a href="#blogs"><FormattedMessage id="homeheader.blogs" /></a>
-          </nav>
+            <nav className="navbar">
+              <a href="#home"><FormattedMessage id="homeheader.home" /></a>
+              <a href="#features"><FormattedMessage id="homeheader.booking" /></a>
+              <a href="#products"><FormattedMessage id="homeheader.clinic" /></a>
+              <a href="#categories"><FormattedMessage id="homeheader.specialty" /></a>
+              <a href="#review"><FormattedMessage id="homeheader.doctors" /></a>
+              <a href="#blogs"><FormattedMessage id="homeheader.blogs" /></a>
+            </nav>
 
-          <div className="language">
-            <div onClick={() => this.handleLanguage(languages.VI)} className={this.state.isVI ? `active` : ''}>VI</div>
-            <div onClick={() => this.handleLanguage(languages.EN)} className={this.state.isEN ? `active` : ''}>EN</div>
-          </div>
-          <div className="icons">
-            <div className="fas fa-bars" id="menu-btn"></div>
-            <div onClick={() => this.handleSearchForm()} className="fas fa-search" id="search-btn"></div>
-            <div onClick={() => this.handleLoginForm()} className="fas fa-user" id="login-btn"></div>
-          </div>
+            <div className="language">
+              <div onClick={() => this.handleLanguage(languages.VI)} className={this.state.isVI ? `active` : ''}>VI</div>
+              <div onClick={() => this.handleLanguage(languages.EN)} className={this.state.isEN ? `active` : ''}>EN</div>
+            </div>
+            <div className="icons">
+              <div className="fas fa-bars" id="menu-btn"></div>
+              <div onClick={() => this.handleSearchForm()} className="fas fa-search" id="search-btn"></div>
+              <div onClick={() => this.handleLoginForm()} className="fas fa-user" id="login-btn"></div>
+            </div>
 
 
-          <form action="" className={`search-form ${this.state.isSearch ? `active` : ''}`}>
-            {/* <FormattedMessage id="homeheader.search" />
+            <form action="" className={`search-form ${this.state.isSearch ? `active` : ''}`}>
+              {/* <FormattedMessage id="homeheader.search" />
             {placeholder =>
               <input
                 className="search-input"
@@ -84,18 +85,19 @@ class HomeHeader extends Component {
                 id="search-box"
               />
             } */}
-            <input type="search" id="search-box" placeholder="search here.." />
-            <label htmlFor="search-box" className="fas fa-search"></label>
-          </form>
+              <input type="search" id="search-box" placeholder="search here.." />
+              <label htmlFor="search-box" className="fas fa-search"></label>
+            </form>
 
-          <form action="" className={`login-form ${this.state.isLogin ? `active` : ''}`}>
-            <h3>login now</h3>
-            <input type="email" placeholder="your email" className="box" />
-            <input type="password" placeholder="your password" className="box" />
-            <p>forget your password <a href="#">click here</a></p>
-            <p>don't have an account <a href="#">create now</a></p>
-            <input type="submit" value="login now" className="btn-login" />
-          </form>
+            <form action="" className={`login-form ${this.state.isLogin ? `active` : ''}`}>
+              <h3>login now</h3>
+              <input type="email" placeholder="your email" className="box" />
+              <input type="password" placeholder="your password" className="box" />
+              <p>forget your password <a href="#">click here</a></p>
+              <p>don't have an account <a href="#">create now</a></p>
+              <input type="submit" value="login now" className="btn-login" />
+            </form>
+          </div>
         </div>
 
         <section className="home" id="home">

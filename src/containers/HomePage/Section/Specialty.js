@@ -6,28 +6,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={className}
-            style={{ ...style, display: "block", background: "red" }}
-            onClick={onClick}
-        />
-    );
-}
-
-function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={className}
-            style={{ ...style, display: "block", background: "green" }}
-            onClick={onClick}
-        />
-    );
-}
-
 class Specialty extends Component {
 
     render() {
@@ -38,18 +16,7 @@ class Specialty extends Component {
             slidesToShow: 4,
             slidesToScroll: 4,
             initialSlide: 0,
-            // nextArrow: <SampleNextArrow />,
-            // prevArrow: <SamplePrevArrow />,
             responsive: [
-                {
-                    breakpoint: 1424,
-                    settings: {
-                        slidesToShow: 5,
-                        slidesToScroll: 5,
-                        infinite: true,
-                        dots: true
-                    }
-                },
 
                 {
                     breakpoint: 1024,
@@ -78,15 +45,15 @@ class Specialty extends Component {
             ]
         }
         return (
-            <div className="s" >
-                <div className="specialty">
+            <div className="specialty">
+                <div className="grid" >
                     <h1 class="heading">what services we offer</h1>
                     <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nulla assumenda et
                         laboriosam est pariatur minima sequi libero perferendis totam.</p>
                     <Slider {...settings}>
                         <div className="specialty-card">
                             <div class="card">
-                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwall.vn%2Fwp-content%2Fuploads%2F2020%2F03%2Fhinh-nen-dep-may-tinh-23.jpg&f=1&nofb=1" class="card-img-top" alt="..." />
+                                <div class="card-img-top card-img" style={{ backgroundImage: `url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwall.vn%2Fwp-content%2Fuploads%2F2020%2F03%2Fhinh-nen-dep-may-tinh-23.jpg&f=1&nofb=1")` }}></div>
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -96,7 +63,27 @@ class Specialty extends Component {
                         </div>
                         <div className="specialty-card">
                             <div class="card">
-                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwall.vn%2Fwp-content%2Fuploads%2F2020%2F03%2Fhinh-nen-dep-may-tinh-23.jpg&f=1&nofb=1" class="card-img-top" alt="..." />
+                                <div class="card-img-top card-img" style={{ backgroundImage: `url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F-eT1OAmllNIk%2FUb6v_jDga-I%2FAAAAAAAAAkw%2F6jh9NzAm4GY%2Fs1600%2Fhinhnenbaibien13.jpg&f=1&nofb=1")` }}></div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">s content. jdhfjhs fksdjfk fksdjfk mfhskdjhfk jhfiksdj</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="specialty-card">
+                            <div class="card">
+                                <div class="card-img-top card-img" style={{ backgroundImage: `url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia-cdn.tripadvisor.com%2Fmedia%2Fphoto-s%2F13%2F0e%2F0e%2F81%2Fhalong-bay-full-day-guided.jpg&f=1&nofb=1")` }}></div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="specialty-card">
+                            <div class="card">
+                                <div class="card-img-top card-img" style={{ backgroundImage: `url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftravel.ebrand.jp%2Fwp%2Fwp-content%2Fuploads%2F2020%2F06%2Ffujisan_1000_1000.jpg&f=1&nofb=1")` }}></div>
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">s content.</p>
@@ -106,7 +93,7 @@ class Specialty extends Component {
                         </div>
                         <div className="specialty-card">
                             <div class="card">
-                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia-cdn.tripadvisor.com%2Fmedia%2Fphoto-s%2F13%2F0e%2F0e%2F81%2Fhalong-bay-full-day-guided.jpg&f=1&nofb=1" class="card-img-top" alt="..." />
+                                <div class="card-img-top card-img" style={{ backgroundImage: `url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwall.vn%2Fwp-content%2Fuploads%2F2020%2F02%2Fhinh-anh-ca-heo-de-thuong-6-1536x960.jpg&f=1&nofb=1")` }}></div>
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -116,48 +103,16 @@ class Specialty extends Component {
                         </div>
                         <div className="specialty-card">
                             <div class="card">
-                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwall.vn%2Fwp-content%2Fuploads%2F2020%2F03%2Fhinh-nen-dep-may-tinh-23.jpg&f=1&nofb=1" class="card-img-top" alt="..." />
+                                <div class="card-img-top card-img" style={{ backgroundImage: `url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F-eT1OAmllNIk%2FUb6v_jDga-I%2FAAAAAAAAAkw%2F6jh9NzAm4GY%2Fs1600%2Fhinhnenbaibien13.jpg&f=1&nofb=1")` }}></div>
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <p class="card-text">s content.</p>
                                     <a href="#" class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
                         </div>
-                        <div className="specialty-card">
-                            <div class="card">
-                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwall.vn%2Fwp-content%2Fuploads%2F2020%2F03%2Fhinh-nen-dep-may-tinh-23.jpg&f=1&nofb=1" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="specialty-card">
-                            <div class="card">
-                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwall.vn%2Fwp-content%2Fuploads%2F2020%2F03%2Fhinh-nen-dep-may-tinh-23.jpg&f=1&nofb=1" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="specialty-card">
-                            <div class="card">
-                                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwall.vn%2Fwp-content%2Fuploads%2F2020%2F03%2Fhinh-nen-dep-may-tinh-23.jpg&f=1&nofb=1" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-
                     </Slider>
-                </div>
+                </div >
             </div >
         );
     }

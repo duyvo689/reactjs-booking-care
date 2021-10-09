@@ -3,7 +3,7 @@
  */
 body,
 html {
-  background       : #eee;
+  background       : #fff;
   background-image : "#fff";
   background-repeat: no-repeat;
   background-size  : cover;
@@ -91,7 +91,10 @@ section {
   font-family: $fontmain;
 }
 
+
+
 .content-container {
+
   .title {
     text-align    : center;
     text-transform: uppercase;
