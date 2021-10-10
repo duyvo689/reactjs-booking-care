@@ -1,0 +1,41 @@
+.slick-prev {
+    z-index    : 100;
+    margin-left: 6px;
+
+}
+
+.slick-prev:before {
+    width    : 46px;
+    height   : 46px;
+    color    : var(--orange) !important;
+    font-size: 40px !important;
+}
+
+.slick-next {
+    margin-right: 22px;
+}
+
+.slick-next:before {
+    width    : 46px;
+    height   : 46px;
+    color    : var(--orange) !important;
+    font-size: 40px !important;
+
+}
+
+section {
+    padding: 2rem 9%;
+}
+
+* {
+    // font-family    : 'Poppins', sans-serif;
+    font-family       : 'Roboto', sans-serif;
+    margin            : 0;
+    padding           : 0;
+    box-sizing        : border-box;
+    outline           : none;
+    border            : none;
+    text-decoration   : none !important;
+    // text-transform : capitalize;
+    transition        : all .2s linear;
+}

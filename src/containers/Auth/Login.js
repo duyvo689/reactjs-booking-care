@@ -12,8 +12,8 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
-            password: '',
+            username: 'duyvo123@gmail.com',
+            password: '123456',
             isShowPassword: false,
             errMessage: '',
         }
@@ -37,12 +37,12 @@ class Login extends Component {
         })
         try {
             let data = await handleLoginApi(this.state.username, this.state.password)
-            if (data && data.message !== 0) {
+            if (data && data.errCode !== 0) {
                 this.setState({
                     errMessage: data.message
                 })
             }
-            if (data && data.message === 0) {
+            if (data && data.errCode === 0) {
                 this.props.userLoginSuccess(data.user)
                 console.log('Đăng nhập thành công!')
             }
