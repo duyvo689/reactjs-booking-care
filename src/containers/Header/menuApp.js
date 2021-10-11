@@ -1,15 +1,52 @@
 export const adminMenu = [
-    { //hệ thống
-        name: 'menu.system.header', menus: [
+    { //hệ thống quản lý người dùng
+        name: 'menu.admin.manager-user', menus: [
+
             {
-                name: 'menu.system.system-administrator.header',
-                subMenus: [
-                    { name: 'menu.system.system-administrator.user-manage', link: '/system/user-manage' },
-                    { name: 'menu.system.system-administrator.product-manage', link: '/system/product-manage' },
-                    { name: 'menu.system.system-administrator.register-package-group-or-account', link: '/system/register-package-group-or-account' },
-                ]
+                name: 'menu.admin.CRUD-user', link: '/system/CRUD-user'
             },
-            // { name: 'menu.system.system-parameter.header', link: '/system/system-parameter' },
+
+            {
+                name: 'menu.admin.CRUD-user-redux', link: '/system/CRUD-user-redux'
+            },
+
+            {
+                name: 'menu.admin.manager-doctor', link: '/system/manager-doctor'
+                // subMenus: [
+                //     { name: 'menu.system.system-administrator.user-manage', link: '/system/user-manage' },
+                //     { name: 'menu.system.system-administrator.user-manage-redux', link: '/system/user-manage-redux' },
+                // ]
+            },
+
+            {
+                name: 'menu.admin.manager-admin', link: '/system/manager-admin'
+            },
+
+
+        ]
+    },
+
+    { //hệ thống quản lý phòng khám
+        name: 'menu.admin.clinic', menus: [
+            {
+                name: 'menu.admin.manager-clinic', link: '/system/manager-clinic'
+            },
+        ]
+    },
+
+    { //hệ thống quản lý chuyên khoa
+        name: 'menu.admin.specialty', menus: [
+            {
+                name: 'menu.admin.manager-specialty', link: '/system/manager-specialty'
+            },
+        ]
+    },
+
+    { //hệ thống quản lý bài đăng
+        name: 'menu.admin.handbook', menus: [
+            {
+                name: 'menu.admin.manager-handbook', link: '/system/manager-handbook'
+            },
         ]
     },
 ];
