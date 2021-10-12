@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import * as actions from "../../../store/actions"
+import * as actions from "../../../store/actions"
 import { getAllCodeService } from "../../../services/userService"
 import { languages } from "../../../utils"
 
@@ -14,28 +14,27 @@ class UserManageRedux extends Component {
     }
 
     async componentDidMount() {
-        // this.props.getGenderStart()
-        try {
-            let res = await getAllCodeService('gender')
-            if (res && res.errCode === 0) {
-                this.setState({
-                    genderArr: res.data
-                })
-            }
-        } catch (e) {
-            console.log(e)
+        this.props.getGenderStart()
+        // try {
+        //     let res = await getAllCodeService('gender')
+        //     if (res && res.errCode === 0) {
+        //         this.setState({
+        //             genderArr: res.data
+        //         })
+        //     }
+        // } catch (e) {
+        //     console.log(e)
+        // }
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.genderRedux !== this.props.genderRedux) {
+            this.setState({
+                genderArr: this.props.genderRedux
+            })
         }
 
     }
-
-    // componentDidUpdate(prevProps, prevState, snapshot) {
-    //     if (prevProps.genderRedux !== this.props.genderRedux) {
-    //         this.setState({
-    //             genderArr: this.props.genderRedux
-    //         })
-    //     }
-
-    // }
 
     render() {
         let genders = this.state.genderArr
@@ -121,13 +120,13 @@ class UserManageRedux extends Component {
 const mapStateToProps = state => {
     return {
         language: state.app.language,
-        // genderRedux: state.admin.genders
+        genderRedux: state.admin.genders
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        // getGenderStart: () => dispatch(actions.fetchGenderStart())
+        getGenderStart: () => dispatch(actions.fetchGenderStart())
     };
 };
 
