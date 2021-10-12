@@ -14,14 +14,42 @@ const adminReducer = (state = initialState, action) => {
                 ...state,
             }
         case actionTypes.FETCH_GENDER_SUCCESS:
-            let coppyState = { ...state }
-            coppyState.genders = action.data
-            console.log('check coppyState from adminReducer: ', coppyState)
+            let genderState = { ...state }
+            genderState.genders = action.data
+            console.log('check coppyState from adminReducer: ', genderState)
             return {
-                ...coppyState
+                ...genderState
             }
         case actionTypes.FETCH_GENDER_FAIDED:
             console.log('check action from FETCH_GENDER_FAIDED adminReducer: ', action)
+            return {
+                ...state
+            }
+
+        //position
+        case actionTypes.FETCH_POSITION_SUCCESS:
+            let positionState = { ...state }
+            positionState.positions = action.data
+            console.log('check coppyState from adminReducer: ', positionState)
+            return {
+                ...positionState
+            }
+        case actionTypes.FETCH_POSITION_FAIDED:
+            console.log('check action from FETCH_POSITION_FAIDED adminReducer: ', action)
+            return {
+                ...state
+            }
+
+        //role
+        case actionTypes.FETCH_ROLE_SUCCESS:
+            let roleState = { ...state }
+            roleState.roles = action.data
+            console.log('check coppyState from adminReducer: ', roleState)
+            return {
+                ...roleState
+            }
+        case actionTypes.FETCH_ROLE_FAIDED:
+            console.log('check action from FETCH_ROLE_FAIDEDadminReducer: ', action)
             return {
                 ...state
             }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from "../../../store/actions"
-import { getAllCodeService } from "../../../services/userService"
+// import { getAllCodeService } from "../../../services/userService"
 import { languages } from "../../../utils"
 
 class UserManageRedux extends Component {
@@ -9,12 +9,17 @@ class UserManageRedux extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            genderArr: []
+            genderArr: [],
+            positionArr: [],
+            roleArr: []
         }
     }
 
     async componentDidMount() {
         this.props.getGenderStart()
+        this.props.getPositionStart()
+        this.props.getRoleStart()
+
         // try {
         //     let res = await getAllCodeService('gender')
         //     if (res && res.errCode === 0) {
@@ -34,10 +39,25 @@ class UserManageRedux extends Component {
             })
         }
 
+        if (prevProps.positionRedux !== this.props.positionRedux) {
+            this.setState({
+                positionArr: this.props.positionRedux
+            })
+        }
+
+        if (prevProps.roleRedux !== this.props.roleRedux) {
+            this.setState({
+                roleArr: this.props.roleRedux
+            })
+        }
+
     }
 
     render() {
         let genders = this.state.genderArr
+        let positions = this.state.positionArr
+        let roles = this.state.roleArr
+
         let language = this.props.language
         return (
             <>
@@ -93,15 +113,25 @@ class UserManageRedux extends Component {
                         <div className="form-group col-md-3">
                             <label for="inputState">Position</label>
                             <select id="inputState" className="form-control">
-                                <option selected>Admin</option>
-                                <option>Doctor</option>
+                                {positions && positions.length > 0 &&
+                                    positions.map((item, index) => {
+                                        return (
+                                            <option key={index}>{language === languages.VI ? item.valueVi : item.valueEn}</option>
+                                        )
+                                    })
+                                }
                             </select>
                         </div>
                         <div className="form-group col-md-3">
                             <label for="inputState">RoleID</label>
                             <select id="inputState" className="form-control">
-                                <option selected>Choose...</option>
-                                <option>...</option>
+                                {roles && roles.length > 0 &&
+                                    roles.map((item, index) => {
+                                        return (
+                                            <option key={index}>{language === languages.VI ? item.valueVi : item.valueEn}</option>
+                                        )
+                                    })
+                                }
                             </select>
                         </div>
                         <div className="form-group col-md-3">
@@ -120,13 +150,17 @@ class UserManageRedux extends Component {
 const mapStateToProps = state => {
     return {
         language: state.app.language,
-        genderRedux: state.admin.genders
+        genderRedux: state.admin.genders,
+        positionRedux: state.admin.positions,
+        roleRedux: state.admin.roles
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        getGenderStart: () => dispatch(actions.fetchGenderStart())
+        getGenderStart: () => dispatch(actions.fetchGenderStart()),
+        getPositionStart: () => dispatch(actions.fetchPositionStart()),
+        getRoleStart: () => dispatch(actions.fetchRoleStart()),
     };
 };
 
