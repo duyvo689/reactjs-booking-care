@@ -1,5 +1,5 @@
 import actionTypes from './actionTypes';
-import { getAllCodeService } from '../../services/userService';
+import { getAllCodeService, createNewUserService } from '../../services/userService';
 
 
 //gender
@@ -82,4 +82,32 @@ export const fetchRoleSucess = (roleData) => ({
 
 export const fetchRoleFaided = () => ({
     type: actionTypes.FETCH_ROLE_FAIDED
+})
+
+
+//create user
+export const createNewUser = (data) => {
+    return async (dispatch, getStart) => {
+        try {
+            let res = await createNewUserService(data)
+            console.log("check create new user: ", res)
+            if (res && res.errCode === 0) {
+                dispatch(saveUserSucess())
+            } else {
+                dispatch(saveUserFailded())
+            }
+        }
+        catch (e) {
+            dispatch(saveUserFailded())
+            console.log("check err adminAction: ", e)
+        }
+    }
+}
+
+export const saveUserSucess = (roleData) => ({
+    type: actionTypes.SAVE_USER_SUCCESS,
+})
+
+export const saveUserFailded = () => ({
+    type: actionTypes.SAVE_USER_FAIlDED
 })
