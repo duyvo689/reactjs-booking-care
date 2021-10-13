@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import * as actions from "../../../store/actions"
 // import { getAllCodeService } from "../../../services/userService"
 import { languages } from "../../../utils"
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 
 class UserManageRedux extends Component {
 
@@ -11,7 +13,9 @@ class UserManageRedux extends Component {
         this.state = {
             genderArr: [],
             positionArr: [],
-            roleArr: []
+            roleArr: [],
+            imgAvt: '',
+            isLightBox: false,
         }
     }
 
@@ -53,6 +57,17 @@ class UserManageRedux extends Component {
 
     }
 
+    handlerUpImg = (event) => {
+        let data = event.target.files;
+        let file = data[0]
+        if (file) {
+            let objectUrl = URL.createObjectURL(file)
+            this.setState({
+                imgAvt: objectUrl
+            })
+        }
+    }
+
     render() {
         let genders = this.state.genderArr
         let positions = this.state.positionArr
@@ -66,40 +81,40 @@ class UserManageRedux extends Component {
                 <form className="container mt-3">
                     <div className="row">
                         <div className="form-group col-md-6">
-                            <label for="inputEmail4">Email</label>
+                            <label htmlFor="inputEmail4">Email</label>
                             <input type="email" className="form-control" id="inputEmail4" placeholder="Email" />
                         </div>
                         <div className="form-group col-md-6">
-                            <label for="inputPassword4">Password</label>
+                            <label htmlFor="inputPassword4">Password</label>
                             <input type="password" className="form-control" id="inputPassword4" placeholder="Password" />
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="form-group col-md-6">
-                            <label for="inputEmail4">First name</label>
+                            <label htmlFor="inputEmail4">First name</label>
                             <input type="text" className="form-control" id="inputEmail4" placeholder="First name" />
                         </div>
                         <div className="form-group col-md-6">
-                            <label for="inputPassword4">Last name</label>
+                            <label htmlFor="inputPassword4">Last name</label>
                             <input type="text" className="form-control" id="inputPassword4" placeholder="Last name" />
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="form-group col-md-4">
-                            <label for="inputAddress">Phone number</label>
+                            <label htmlFor="inputAddress">Phone number</label>
                             <input type="text" className="form-control" id="inputAddress" placeholder="Phone number" />
                         </div>
                         <div className="form-group col-md-8">
-                            <label for="inputAddress">Address</label>
+                            <label htmlFor="inputAddress">Address</label>
                             <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" />
                         </div>
                     </div>
 
                     <div className="row">
                         <div className="form-group col-md-3">
-                            <label for="inputState">Sex</label>
+                            <label htmlFor="inputState">Sex</label>
                             <select id="inputState" className="form-control">
                                 {genders && genders.length > 0 &&
                                     genders.map((item, index) => {
@@ -111,7 +126,7 @@ class UserManageRedux extends Component {
                             </select>
                         </div>
                         <div className="form-group col-md-3">
-                            <label for="inputState">Position</label>
+                            <label htmlFor="inputState">Position</label>
                             <select id="inputState" className="form-control">
                                 {positions && positions.length > 0 &&
                                     positions.map((item, index) => {
@@ -123,7 +138,7 @@ class UserManageRedux extends Component {
                             </select>
                         </div>
                         <div className="form-group col-md-3">
-                            <label for="inputState">RoleID</label>
+                            <label htmlFor="inputState">RoleID</label>
                             <select id="inputState" className="form-control">
                                 {roles && roles.length > 0 &&
                                     roles.map((item, index) => {
@@ -135,12 +150,36 @@ class UserManageRedux extends Component {
                             </select>
                         </div>
                         <div className="form-group col-md-3">
-                            <label for="inputZip">Images</label>
-                            <input type="text" className="form-control" id="inputZip" />
+                            <label htmlFor="inputZip">Images</label>
+                            <input type="file"
+                                className="form-control" id="inputZip"
+                                onChange={(event) => this.handlerUpImg(event)}
+                            />
+                            <div className="preview-img"
+                                style={{
+                                    marginTop: "5px",
+                                    maxWidth: "270px", height: "90px",
+                                    border: "1px solid",
+                                    backgroundImage: `url(${this.state.imgAvt})`,
+                                    backgroundPosition: 'center',
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundSize: 'contain',
+                                    cursor: 'pointer'
+                                }}
+                                onClick={() => this.setState({ isLightBox: true })}
+                            >
+                            </div>
                         </div>
                     </div>
                     <button type="submit" className="btn btn-primary mt-4">Submit</button>
                 </form>
+
+                {this.state.isLightBox && (
+                    <Lightbox
+                        mainSrc={this.state.imgAvt}
+                        onCloseRequest={() => this.setState({ isLightBox: false })}
+                    />
+                )}
             </>
         )
     }
