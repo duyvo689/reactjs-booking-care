@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from "../../../store/actions"
 // import { getAllCodeService } from "../../../services/userService"
-import { languages } from "../../../utils"
+import { languages, CommonUtils } from "../../../utils"
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 
@@ -74,15 +74,23 @@ class UserManageRedux extends Component {
 
     }
 
-    handlerUpImg = (event) => {
+    handlerUpImg = async (event) => {
         let data = event.target.files;
         let file = data[0]
         if (file) {
+            let base64 = await CommonUtils.getBase64(file)
             let objectUrl = URL.createObjectURL(file)
             this.setState({
                 imgAvt: objectUrl,
-                avatar: file
+                avatar: base64
             })
+        }
+    }
+
+    handlerEditImgUser = (user) => {
+        let imageBase64 = ''
+        if (user.image) {
+            imageBase64 = new Buffer(user.image, 'base64').toString('binary')
         }
     }
 
@@ -98,6 +106,7 @@ class UserManageRedux extends Component {
             gender: this.state.gender,
             roleId: this.state.role,
             positionId: this.state.position,
+            avatar: this.state.avatar,
         })
     }
 
