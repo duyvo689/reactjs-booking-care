@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import HomeHeader from './HomeHeader';
 import Specialty from './Section/Specialty';
+import TopDoctor from './Section/TopDoctor';
 import "./HomePage.scss"
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 class HomePage extends Component {
 
@@ -12,6 +16,7 @@ class HomePage extends Component {
             <div>
                 <HomeHeader />
                 <Specialty />
+                <TopDoctor />
             </div>
         );
     }

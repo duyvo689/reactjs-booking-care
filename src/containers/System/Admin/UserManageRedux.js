@@ -52,7 +52,7 @@ class UserManageRedux extends Component {
             let arrGender = this.props.genderRedux
             this.setState({
                 genderArr: arrGender,
-                gender: arrGender && arrGender.length > 0 ? arrGender[0].key : ''
+                gender: arrGender && arrGender.length > 0 ? arrGender[0].keyMap : ''
             })
         }
 
@@ -60,7 +60,7 @@ class UserManageRedux extends Component {
             let arrPosition = this.props.positionRedux
             this.setState({
                 positionArr: arrPosition,
-                position: arrPosition && arrPosition.length > 0 ? arrPosition[0].key : ''
+                position: arrPosition && arrPosition.length > 0 ? arrPosition[0].keyMap : ''
             })
         }
 
@@ -68,7 +68,7 @@ class UserManageRedux extends Component {
             let arrRole = this.props.roleRedux
             this.setState({
                 roleArr: arrRole,
-                role: arrRole && arrRole.length > 0 ? arrRole[0].key : ''
+                role: arrRole && arrRole.length > 0 ? arrRole[0].keyMap : ''
             })
         }
 
@@ -115,7 +115,7 @@ class UserManageRedux extends Component {
         coppyState[id] = event.target.value
         this.setState({
             ...coppyState
-        }, console.log(this.state))
+        })
     }
 
     render() {
@@ -191,7 +191,7 @@ class UserManageRedux extends Component {
                                 {genders && genders.length > 0 &&
                                     genders.map((item, index) => {
                                         return (
-                                            <option value={item.key} key={index}>{language === languages.VI ? item.valueVi : item.valueEn}</option>
+                                            <option value={item.keyMap} keyMap={index}>{language === languages.VI ? item.valueVi : item.valueEn}</option>
                                         )
                                     })
                                 }
@@ -200,13 +200,13 @@ class UserManageRedux extends Component {
                         <div className="form-group col-md-3">
                             <label htmlFor="inputState">Position</label>
                             <select id="inputState" className="form-control"
-                                value="item.key"
+                                value="item.keyMap"
                                 onChange={(event) => this.onChangeInput(event, 'position')}
                             >
                                 {positions && positions.length > 0 &&
                                     positions.map((item, index) => {
                                         return (
-                                            <option value={item.key} key={index}>{language === languages.VI ? item.valueVi : item.valueEn}</option>
+                                            <option value={item.keyMap} keyMap={index}>{language === languages.VI ? item.valueVi : item.valueEn}</option>
                                         )
                                     })
                                 }
@@ -215,13 +215,13 @@ class UserManageRedux extends Component {
                         <div className="form-group col-md-3">
                             <label htmlFor="inputState">RoleID</label>
                             <select id="inputState" className="form-control"
-                                value="item.key"
+                                value="item.keyMap"
                                 onChange={(event) => this.onChangeInput(event, 'role')}
                             >
                                 {roles && roles.length > 0 &&
                                     roles.map((item, index) => {
                                         return (
-                                            <option value={item.key} key={index}>{language === languages.VI ? item.valueVi : item.valueEn}</option>
+                                            <option value={item.keyMap} keyMap={index}>{language === languages.VI ? item.valueVi : item.valueEn}</option>
                                         )
                                     })
                                 }
@@ -283,7 +283,7 @@ const mapDispatchToProps = dispatch => {
         getPositionStart: () => dispatch(actions.fetchPositionStart()),
         getRoleStart: () => dispatch(actions.fetchRoleStart()),
         createNewUser: (data) => dispatch(actions.fetchcreateNewUserStart(data)),
-        allUser: () => (data) => dispatch(actions.fetchAllUserStart(data))
+        allUser: () => () => dispatch(actions.fetchAllUserStart())
     };
 };
 
