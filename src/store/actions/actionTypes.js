@@ -23,6 +23,9 @@ const actionTypes = Object.freeze({
 
     SAVE_USER_SUCCESS: 'SAVE_USER_SUCCESS',
     SAVE_USER_FAILDED: 'SAVE_USER_FAILDED',
+
+    All_USER_SUCCESS: 'All_USER_SUCCESS',
+    All_USER_FAIlDED: 'All_USER_FAIlDED'
 })
 
 export default actionTypes;

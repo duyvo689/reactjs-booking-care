@@ -1,5 +1,6 @@
 import actionTypes from './actionTypes';
-import { getAllCodeService, createNewUserService } from '../../services/userService';
+import { getAllUsers, getAllCodeService, createNewUserService, getTopDoctorHomeService } from '../../services/userService';
+import { toast } from 'react-toastify';
 
 
 //gender
@@ -86,28 +87,57 @@ export const fetchRoleFaided = () => ({
 
 
 //create user
-export const createNewUser = (data) => {
+export const fetchcreateNewUserStart = (data) => {
     return async (dispatch, getStart) => {
         try {
             let res = await createNewUserService(data)
             console.log("check create new user: ", res)
             if (res && res.errCode === 0) {
-                dispatch(saveUserSucess())
+                dispatch(fetchSaveUserSucess())
             } else {
-                dispatch(saveUserFailded())
+                dispatch(fetchSaveUserFailded())
             }
         }
         catch (e) {
-            dispatch(saveUserFailded())
+            dispatch(fetchSaveUserFailded())
             console.log("check err adminAction: ", e)
         }
     }
 }
 
-export const saveUserSucess = (roleData) => ({
+export const fetchSaveUserSucess = (roleData) => ({
     type: actionTypes.SAVE_USER_SUCCESS,
 })
 
-export const saveUserFailded = () => ({
+export const fetchSaveUserFailded = () => ({
     type: actionTypes.SAVE_USER_FAIlDED
+})
+
+//all user
+export const fetchAllUserStart = () => {
+    return async (dispatch, getStart) => {
+        try {
+            let res = await getAllUsers("ALL")
+            let res1 = await getTopDoctorHomeService(3)
+            console.log("check get all user from adminAction: ", res1)
+            if (res && res.errCode === 0) {
+                dispatch(fetchAllUserSucess(res.users.reverse()))
+            } else {
+                toast.error('Fetch all users err!')
+                dispatch(fetchAllUserFailded())
+            }
+        }
+        catch (e) {
+            dispatch(fetchAllUserFailded())
+            console.log("check err adminAction: ", e)
+        }
+    }
+}
+
+export const fetchAllUserSucess = (roleData) => ({
+    type: actionTypes.All_USER_SUCCESS,
+})
+
+export const fetchAllUserFailded = () => ({
+    type: actionTypes.All_USER_FAIlDED
 })
