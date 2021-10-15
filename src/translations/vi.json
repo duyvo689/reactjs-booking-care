@@ -47,7 +47,8 @@
             "system-administrator": {
                 "header": "Quản trị hệ thống",
                 "user-manage": "Quản lý người sử dụng gọi API",
-                "user-manage-redux": "Quản lý người sử dụng với redux"
+                "user-manage-redux": "Quản lý người sử dụng với redux",
+                "editer-content": "Editer content"
             },
             "system-parameter": {
                 "header": "Tham số hệ thống"
@@ -59,6 +60,7 @@
             "CRUD-user-redux": "Người dùng Redux",
             "manager-doctor": "Quản lí bác sĩ",
             "manager-admin": "Quản lí admin",
+            "editer-content": "Soạn thảo nội dung",
             "clinic": "Phòng khám",
             "manager-clinic": "Quản lí phòng khám",
             "specialty": "Chuyên khoa",

@@ -47,7 +47,8 @@
             "system-administrator": {
                 "header": "System Administrator",
                 "user-manage": "User manage API",
-                "user-manage-redux": "User manage redux"
+                "user-manage-redux": "User manage redux",
+                "editer-content": "Editer content"
             },
             "system-parameter": {
                 "header": "System-parameter"
@@ -59,6 +60,7 @@
             "CRUD-user-redux": "User Redux",
             "manager-doctor": "Manager doctors",
             "manager-admin": "Manager admin",
+            "editer-content": "Editer content",
             "clinic": "clinic",
             "manager-clinic": "Manager clinic",
             "specialty": "Specialty",

@@ -22,6 +22,10 @@ export const adminMenu = [
                 name: 'menu.admin.manager-admin', link: '/system/manager-admin'
             },
 
+            {
+                name: 'menu.admin.editer-content', link: '/system/editer-content'
+            },
+
 
         ]
     },
