@@ -1,5 +1,5 @@
 import actionTypes from './actionTypes';
-import { getAllUsers, getAllCodeService, createNewUserService, getTopDoctorHomeService } from '../../services/userService';
+import { getAllUsers, getAllCodeService, createNewUserService, getTopDoctorHomeService, getAllDoctorService, saveDetailDoctorService } from '../../services/userService';
 import { toast } from 'react-toastify';
 
 
@@ -162,6 +162,59 @@ export const fetchTopDoctorStart = () => {
             console.log(" ", e)
             dispatch({
                 type: actionTypes.TOP_DOCTOR_FAIlDED
+            })
+        }
+    }
+}
+
+//all doctors
+
+export const fetchAllDoctorStart = () => {
+    return async (dispatch, getStart) => {
+        try {
+            let res = await getAllDoctorService('')
+            console.log("check get all doctor from adminAction: ", res)
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_DOCTOR_SUCCESS,
+                    dataDoctors: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_DOCTOR_FAIlDED
+                })
+            }
+        }
+        catch (e) {
+            console.log(" ", e)
+            dispatch({
+                type: actionTypes.FETCH_ALL_DOCTOR_FAIlDED
+            })
+        }
+    }
+}
+
+// save detail doctor 
+export const saveDetailDoctorStart = (data) => {
+    return async (dispatch, getStart) => {
+        try {
+            let res = await saveDetailDoctorService(data)
+            if (res && res.errCode === 0) {
+                toast.success("Lưu dữ liệu thành công")
+                dispatch({
+                    type: actionTypes.SAVE_DETAIL_DOCTOR_SUCCESS,
+                })
+            } else {
+                toast.error("Lưu dữ liệu thành công")
+                dispatch({
+                    type: actionTypes.SAVE_DETAIL_DOCTOR_FAIlDED
+                })
+            }
+        }
+        catch (e) {
+            console.log(" ", e)
+            dispatch({
+                type: actionTypes.SAVE_DETAIL_DOCTOR_FAIlDED
             })
         }
     }
