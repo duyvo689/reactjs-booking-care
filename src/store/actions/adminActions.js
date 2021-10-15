@@ -118,8 +118,7 @@ export const fetchAllUserStart = () => {
     return async (dispatch, getStart) => {
         try {
             let res = await getAllUsers("ALL")
-            let res1 = await getTopDoctorHomeService(3)
-            console.log("check get all user from adminAction: ", res1)
+            // let res1 = await getTopDoctorHomeService(3)
             if (res && res.errCode === 0) {
                 dispatch(fetchAllUserSucess(res.users.reverse()))
             } else {
@@ -141,3 +140,29 @@ export const fetchAllUserSucess = (roleData) => ({
 export const fetchAllUserFailded = () => ({
     type: actionTypes.All_USER_FAIlDED
 })
+
+//top doctor 
+export const fetchTopDoctorStart = () => {
+    return async (dispatch, getStart) => {
+        try {
+            let res = await getTopDoctorHomeService('')
+            console.log("check get top doctor from adminAction: ", res)
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.TOP_DOCTOR_SUCCESS,
+                    dataDoctors: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.TOP_DOCTOR_FAIlDED
+                })
+            }
+        }
+        catch (e) {
+            console.log(" ", e)
+            dispatch({
+                type: actionTypes.TOP_DOCTOR_FAIlDED
+            })
+        }
+    }
+}

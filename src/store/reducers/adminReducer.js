@@ -3,7 +3,8 @@ import actionTypes from '../actions/actionTypes';
 const initialState = {
     genders: [],
     roles: [],
-    positions: []
+    positions: [],
+    topDoctors: []
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -50,6 +51,18 @@ const adminReducer = (state = initialState, action) => {
             }
         case actionTypes.FETCH_ROLE_FAIDED:
             console.log('check action from FETCH_ROLE_FAIDEDadminReducer: ', action)
+            return {
+                ...state
+            }
+
+        //top doctor
+        case actionTypes.TOP_DOCTOR_SUCCESS:
+            state.topDoctors = action.dataDoctors
+            return {
+                ...state
+            }
+        case actionTypes.TOP_DOCTOR_FAIlDED:
+            state.topDoctors = []
             return {
                 ...state
             }

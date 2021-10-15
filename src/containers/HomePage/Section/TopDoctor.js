@@ -5,12 +5,27 @@ import Slider from "react-slick";
 import * as actions from '../../../store/actions'
 
 class TopDoctor extends Component {
-
+    constructor(props) {
+        super(props)
+        this.state = {
+            arrDoctors: []
+        }
+    }
     componentDidMount() {
+        this.props.loadTopDoctors()
+    }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.TopDoctorsRedux !== this.props.TopDoctorsRedux) {
+            this.setState({
+                arrDoctors: this.props.TopDoctorsRedux
+            })
+        }
     }
 
     render() {
+        let arrDoctors = this.state.arrDoctors
+        arrDoctors = arrDoctors.concat(arrDoctors).concat(arrDoctors)
         const settings = {
             dots: true,
             infinite: false,
@@ -53,66 +68,32 @@ class TopDoctor extends Component {
                     <p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nulla assumenda et
                         laboriosam est pariatur minima sequi libero perferendis totam.</p>
                     <Slider {...settings}>
-                        <div className="TopDoctor-card">
-                            <div className="card">
-                                <div className="card-img-top card-img" style={{ backgroundImage: `url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwall.vn%2Fwp-content%2Fuploads%2F2020%2F03%2Fhinh-nen-dep-may-tinh-23.jpg&f=1&nofb=1")` }}></div>
-                                <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" className="btn btn-primary">Go somewhere</a>
+
+                        {arrDoctors && arrDoctors.length > 0 && arrDoctors.map((item, index) => {
+                            let imageBase64 = ''
+                            if (item.image) {
+                                imageBase64 = new Buffer(item.image, 'base64').toString('binary')
+                            }
+                            if (index === 0) {
+                                console.log("<<<>>>>>:", item)
+                            }
+
+                            let nameVi = `${item.positionData.valueVi}, ${item.firstName} ${item.lastName}`
+                            return (
+                                <div className="TopDoctor-card">
+                                    <div className="card">
+                                        <div className="card-img-top card-img" style={{ backgroundImage: `url(${imageBase64})` }}></div>
+                                        <div className="card-body">
+                                            <h5 className="card-title">{nameVi}</h5>
+                                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div className="TopDoctor-card">
-                            <div className="card">
-                                <div className="card-img-top card-img" style={{ backgroundImage: `url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F-eT1OAmllNIk%2FUb6v_jDga-I%2FAAAAAAAAAkw%2F6jh9NzAm4GY%2Fs1600%2Fhinhnenbaibien13.jpg&f=1&nofb=1")` }}></div>
-                                <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">s content. jdhfjhs fksdjfk fksdjfk mfhskdjhfk jhfiksdj</p>
-                                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="TopDoctor-card">
-                            <div className="card">
-                                <div className="card-img-top card-img" style={{ backgroundImage: `url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia-cdn.tripadvisor.com%2Fmedia%2Fphoto-s%2F13%2F0e%2F0e%2F81%2Fhalong-bay-full-day-guided.jpg&f=1&nofb=1")` }}></div>
-                                <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="TopDoctor-card">
-                            <div className="card">
-                                <div className="card-img-top card-img" style={{ backgroundImage: `url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftravel.ebrand.jp%2Fwp%2Fwp-content%2Fuploads%2F2020%2F06%2Ffujisan_1000_1000.jpg&f=1&nofb=1")` }}></div>
-                                <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">s content.</p>
-                                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="TopDoctor-card">
-                            <div className="card">
-                                <div className="card-img-top card-img" style={{ backgroundImage: `url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwall.vn%2Fwp-content%2Fuploads%2F2020%2F02%2Fhinh-anh-ca-heo-de-thuong-6-1536x960.jpg&f=1&nofb=1")` }}></div>
-                                <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="TopDoctor-card">
-                            <div className="card">
-                                <div className="card-img-top card-img" style={{ backgroundImage: `url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F2.bp.blogspot.com%2F-eT1OAmllNIk%2FUb6v_jDga-I%2FAAAAAAAAAkw%2F6jh9NzAm4GY%2Fs1600%2Fhinhnenbaibien13.jpg&f=1&nofb=1")` }}></div>
-                                <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">s content.</p>
-                                    <a href="#" className="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
+                            )
+                        })}
+
+
                     </Slider>
                 </div >
             </div >
@@ -122,12 +103,14 @@ class TopDoctor extends Component {
 
 const mapStateToProps = state => {
     return {
-        isLoggedIn: state.user.isLoggedIn
+        isLoggedIn: state.user.isLoggedIn,
+        TopDoctorsRedux: state.admin.topDoctors
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
+        loadTopDoctors: () => dispatch(actions.fetchTopDoctorStart())
     };
 };
 
