@@ -62,7 +62,7 @@ class TopDoctor extends Component {
             ]
         }
         return (
-            <div className="TopDoctor">
+            <div className="top-doctor">
                 <div className="grid" >
                     <h1 className="heading">what services we offer</h1>
                     <p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nulla assumenda et
@@ -80,7 +80,7 @@ class TopDoctor extends Component {
 
                             let nameVi = `${item.positionData.valueVi}, ${item.firstName} ${item.lastName}`
                             return (
-                                <div className="TopDoctor-card">
+                                <div className="top-doctor-card">
                                     <div className="card">
                                         <div className="card-img-top card-img" style={{ backgroundImage: `url(${imageBase64})` }}></div>
                                         <div className="card-body">

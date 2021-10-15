@@ -13,7 +13,7 @@ class HomePage extends Component {
     render() {
 
         return (
-            <div>
+            <div className="home-page">
                 <HomeHeader />
                 <Specialty />
                 <TopDoctor />
