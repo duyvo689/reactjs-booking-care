@@ -1,0 +1,119 @@
+html {
+    font-size: 62.5%;
+}
+
+.grid {
+    width    : 100%;
+    max-width: 1200px;
+    margin   : 0 auto;
+
+    .detail-doctor {
+        display        : flex;
+        justify-content: space-between;
+        background     : #eee;
+        padding-top    : 14rem;
+        padding-bottom : 5rem;
+
+        .doctor-avatar {
+            height             : 150px;
+            width              : 150px;
+            background-position: center;
+            background-repeat  : no-repeat;
+            background-size    : cover;
+            border-radius      : 50%;
+            padding            : 6rem;
+            margin             : auto 3rem;
+        }
+
+        .doctor-text {
+            width      : 100%;
+            align-items: center;
+            margin     : 1.8rem 10rem 2rem 1rem;
+
+            .doctor-title {
+                font-weight: bold;
+                font-size  : 2.2rem;
+            }
+
+            .doctor-description {
+
+                padding-top: 0.6rem;
+                text-align : justify;
+                font-size  : 1.6rem;
+            }
+        }
+    }
+
+    .doctor-post {
+
+        p {
+            width     : 100%;
+            text-align: justify;
+            font-size : 1.6rem;
+            padding   : 2rem;
+        }
+    }
+
+}
+
+
+
+
+@media (max-width:991px) {
+
+    html {
+        font-size: 55%;
+    }
+
+    .header {
+        padding: 2rem;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .grid .detail-doctor {
+        padding-top   : 12rem;
+        padding-bottom: 3rem;
+
+        .doctor-avatar {
+            height: 140px;
+            width : 140px;
+            margin: 0 1.6rem;
+        }
+
+        .doctor-text {
+            margin: 1.8rem 6rem 2rem 2rem;
+        }
+    }
+}
+
+@media (max-width:512px) {
+    html {
+        font-size: 50%;
+    }
+
+    .grid .detail-doctor {
+        padding-top   : 11rem;
+        padding-bottom: 3rem;
+
+        .doctor-avatar {
+            height: 120px;
+            width : 120px;
+            margin: auto 1.4rem;
+        }
+
+        .doctor-text {
+            margin: 0.6rem 4.2rem 0 1.4rem;
+
+            .doctor-description {
+                padding-top: 0.2rem;
+            }
+        }
+    }
+}

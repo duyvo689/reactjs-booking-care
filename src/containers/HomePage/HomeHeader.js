@@ -100,15 +100,16 @@ class HomeHeader extends Component {
           </div>
         </div>
 
-        <section className="home" id="home">
+        {this.props.isShowBanner === true &&
+          <section className="home" id="home">
+            <div className="content">
+              <h3><FormattedMessage id="banner.slogan-1" />  <span><FormattedMessage id="banner.slogan-2" /> </span><FormattedMessage id="banner.slogan-3" /> </h3>
+              <p><FormattedMessage id="banner.title" /> </p>
+              <a href="#" className="btn-login"><FormattedMessage id="banner.btn-banner" /> </a>
+            </div>
 
-          <div className="content">
-            <h3><FormattedMessage id="banner.slogan-1" />  <span><FormattedMessage id="banner.slogan-2" /> </span><FormattedMessage id="banner.slogan-3" /> </h3>
-            <p><FormattedMessage id="banner.title" /> </p>
-            <a href="#" className="btn-login"><FormattedMessage id="banner.btn-banner" /> </a>
-          </div>
-
-        </section>
+          </section>
+        }
       </>
     );
   }

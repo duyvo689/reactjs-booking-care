@@ -31,14 +31,16 @@ html {
 }
 
 .header {
-    position  : fixed;
-    top       : 0;
-    left      : 0;
-    right     : 0;
-    z-index   : 1000;
-    padding   : 2rem 9%;
-    background: #fff;
-    box-shadow: var(--box-shadow);
+    position      : fixed;
+    top           : 0;
+    left          : 0;
+    right         : 0;
+    z-index       : 1000;
+    padding       : 2rem 9%;
+    background    : #fff;
+    box-shadow    : var(--box-shadow);
+    text-transform: capitalize;
+
 
 
     .grid-header {
@@ -206,7 +208,7 @@ html {
     background         : url(../../assets/home-img.jpeg) no-repeat;
     background-position: center;
     background-size    : cover;
-    padding-top        : 17rem;
+    padding-top        : 22rem;
     padding-bottom     : 10rem;
     width              : 100%;
     height             : auto;

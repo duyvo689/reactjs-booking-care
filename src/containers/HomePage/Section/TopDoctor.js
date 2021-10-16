@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import "./TopDoctor.scss"
 import Slider from "react-slick";
 import * as actions from '../../../store/actions'
+import { withRouter } from 'react-router';
 
 class TopDoctor extends Component {
     constructor(props) {
@@ -21,6 +22,10 @@ class TopDoctor extends Component {
                 arrDoctors: this.props.TopDoctorsRedux
             })
         }
+    }
+
+    handleViewDetail = (user) => {
+        this.props.history.push(`./user/${user.id}`);
     }
 
     render() {
@@ -80,8 +85,8 @@ class TopDoctor extends Component {
 
                             let nameVi = `${item.positionData.valueVi}, ${item.firstName} ${item.lastName}`
                             return (
-                                <div className="top-doctor-card">
-                                    <div className="card">
+                                <div className="top-doctor-card" key="id" onClick={() => this.handleViewDetail(item)}>
+                                    <div className="card" >
                                         <div className="card-img-top card-img" style={{ backgroundImage: `url(${imageBase64})` }}></div>
                                         <div className="card-body">
                                             <h5 className="card-title">{nameVi}</h5>
@@ -114,4 +119,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopDoctor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TopDoctor));
