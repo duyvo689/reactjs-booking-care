@@ -47,7 +47,6 @@ class HomeHeader extends Component {
 
 
   render() {
-    console.log("check props: ", this.props)
     return (
       <>
         <div className="header">

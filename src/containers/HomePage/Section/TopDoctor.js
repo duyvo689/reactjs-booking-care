@@ -25,6 +25,7 @@ class TopDoctor extends Component {
     }
 
     handleViewDetail = (user) => {
+
         this.props.history.push(`./user/${user.id}`);
     }
 
@@ -85,13 +86,13 @@ class TopDoctor extends Component {
 
                             let nameVi = `${item.positionData.valueVi}, ${item.firstName} ${item.lastName}`
                             return (
-                                <div className="top-doctor-card" key="id" onClick={() => this.handleViewDetail(item)}>
+                                <div className="top-doctor-card" key="item.id" onClick={() => this.handleViewDetail(item)}>
                                     <div className="card" >
                                         <div className="card-img-top card-img" style={{ backgroundImage: `url(${imageBase64})` }}></div>
                                         <div className="card-body">
                                             <h5 className="card-title">{nameVi}</h5>
                                             <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                                            <a className="btn btn-primary">Go somewhere</a>
                                         </div>
                                     </div>
                                 </div>
