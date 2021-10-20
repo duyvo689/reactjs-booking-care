@@ -85,6 +85,33 @@ export const fetchRoleFaided = () => ({
     type: actionTypes.FETCH_ROLE_FAIDED
 })
 
+//time
+export const fetchTimeStart = () => {
+    return async (dispatch, getStart) => {
+        try {
+            let res = await getAllCodeService('TIME')
+            if (res && res.errCode === 0) {
+                dispatch(fetchTimeSucess(res.data))
+            } else {
+                dispatch(fetchTimeFailded())
+            }
+        }
+        catch (e) {
+            dispatch(fetchTimeFailded())
+            console.log("check err adminAction: ", e)
+        }
+    }
+}
+
+export const fetchTimeSucess = (timeData) => ({
+    type: actionTypes.FETCH_TIME_SUCCESS,
+    data: timeData
+})
+
+export const fetchTimeFailded = () => ({
+    type: actionTypes.FETCH_TIME_FAILDED
+})
+
 
 //create user
 export const fetchcreateNewUserStart = (data) => {

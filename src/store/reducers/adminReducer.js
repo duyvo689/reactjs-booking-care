@@ -4,6 +4,7 @@ const initialState = {
     genders: [],
     roles: [],
     positions: [],
+    times: [],
     topDoctors: [],
     allDoctors: []
 }
@@ -51,6 +52,20 @@ const adminReducer = (state = initialState, action) => {
                 ...roleState
             }
         case actionTypes.FETCH_ROLE_FAIDED:
+            console.log('check action from FETCH_ROLE_FAIDEDadminReducer: ', action)
+            return {
+                ...state
+            }
+
+        //time
+        case actionTypes.FETCH_TIME_SUCCESS:
+            let timeState = { ...state }
+            timeState.times = action.data
+            console.log('check coppyState from adminReducer: ', timeState)
+            return {
+                ...timeState
+            }
+        case actionTypes.FETCH_TIME_FAILDED:
             console.log('check action from FETCH_ROLE_FAIDEDadminReducer: ', action)
             return {
                 ...state
