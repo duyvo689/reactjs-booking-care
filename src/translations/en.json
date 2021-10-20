@@ -67,6 +67,9 @@
             "manager-specialty": "Manager specialty",
             "handbook": "Handbook",
             "manager-handbook": "Manager handbook"
+        },
+        "doctor": {
+            "manager-shedule": "Manager shedule"
         }
     }
 }

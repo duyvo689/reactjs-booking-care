@@ -67,6 +67,9 @@
             "manager-specialty": "Quản lí chuyên khoa",
             "handbook": "Bài viết",
             "manager-handbook": "Quản lí bài viết"
+        },
+        "doctor": {
+            "manager-shedule": "Quản lí lịch khám"
         }
     }
 }

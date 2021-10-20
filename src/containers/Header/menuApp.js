@@ -18,13 +18,17 @@ export const adminMenu = [
                 // ]
             },
 
-            {
-                name: 'menu.admin.manager-admin', link: '/system/manager-admin'
-            },
+            // {
+            //     name: 'menu.admin.manager-admin', link: '/system/manager-admin'
+            // },
 
             {
                 name: 'menu.admin.editer-content', link: '/system/editer-content'
             },
+
+            { //quản lý lịch khám
+                name: 'menu.doctor.manager-shedule', link: '/doctor/manager-shedule'
+            }
 
 
         ]
@@ -53,4 +57,16 @@ export const adminMenu = [
             },
         ]
     },
+];
+
+export const doctorMenu = [
+    { //quản lý lịch khám
+        name: 'menu.admin.manager-user',
+        menus: [
+
+            {
+                name: 'menu.doctor.manager-shedule', link: '/doctor/manager-shedule'
+            },
+        ]
+    }
 ];
