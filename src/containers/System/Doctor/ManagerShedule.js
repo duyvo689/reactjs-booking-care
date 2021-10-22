@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import * as actions from '../../../store/actions'
-import { languages } from "../../../utils"
+import { languages, dateFormat } from "../../../utils"
 import { connect } from 'react-redux';
 import "./ManagerShedule.scss"
 import DatePicker from '../../../components/Input/DatePicker';
+import { toast } from 'react-toastify';
+import _ from 'lodash'
+import moment from 'moment';
+import { FormattedMessage } from 'react-intl';
 
 
 class ManagerShedule extends Component {
@@ -16,7 +20,9 @@ class ManagerShedule extends Component {
             arrDoctors: '',
             timeArr: [],
             time: '',
-            currentDate: ''
+            currentDate: '',
+
+            rangeTime: []
         }
     }
 
@@ -43,6 +49,16 @@ class ManagerShedule extends Component {
                 time: arrTime && arrTime.length > 0 ? arrTime[0].keyMap : ''
             })
         }
+
+        if (prevProps.timeRedux !== this.props.timeRedux) {
+            let data = this.props.timeRedux
+            if (data && data.length > 0) {
+                data = data.map(item => ({ ...item, isSelected: false }))
+            }
+            this.setState({
+                rangeTime: data
+            })
+        }
     }
 
     buildDataInputSelect = (inputData) => {
@@ -57,6 +73,8 @@ class ManagerShedule extends Component {
             })
         }
         return result
+
+        console.log("check result in build: ", result)
     }
 
     handleChange = (selectedOption) => {
@@ -70,9 +88,58 @@ class ManagerShedule extends Component {
         })
     }
 
+    handleClickBtnTime = (time) => {
+        let { rangeTime } = this.state
+        if (rangeTime && rangeTime.length > 0) {
+            rangeTime = rangeTime.map(item => {
+                if (item.id === time.id) item.isSelected = !item.isSelected
+                return item
+            })
+            this.setState({
+                rangeTime: rangeTime
+            })
+        }
+    }
+
+    handleSaveShedule = () => {
+        let { rangeTime, selectedOption, currentDate } = this.state
+        let result = []
+
+        if (!currentDate) {
+            toast.error("invalid date! ")
+            return;
+        }
+        if (selectedOption && _.isEmpty(selectedOption)) {
+            toast.error("Invalid selected doctor! ")
+            return
+        }
+
+        let formateDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER)
+
+        if (rangeTime && rangeTime.length > 0) {
+            let selectedTime = rangeTime.filter(item => item.isSelected === true)
+            if (selectedTime && selectedTime.length > 0) {
+                selectedTime.map((shedule, index) => {
+                    let object = {}
+                    object.doctorId = selectedOption.value
+                    object.date = formateDate
+                    object.time = shedule.keyMap
+                    result.push(object)
+                })
+
+            } else {
+                toast.error("Invalid selected time")
+                return
+            }
+        }
+
+        console.log('check result from managerahedule: ', result)
+    }
+
     render() {
         const { selectedOption, arrDoctors } = this.state
         let times = this.state.timeArr
+        let rangeTime = this.state.rangeTime
         let language = this.props.language
         console.log("chek coi: ", this.state)
         return (
@@ -103,10 +170,13 @@ class ManagerShedule extends Component {
                 </div>
                 <div className="container time-box">
 
-                    {times && times.length > 0 &&
-                        times.map((item, index) => {
+                    {rangeTime && rangeTime.length > 0 &&
+                        rangeTime.map((item, index) => {
                             return (
-                                <div className="time">
+                                <div className={`time ${item.isSelected === true ? "active" : ""}`}
+                                    key={index}
+                                    onClick={() => this.handleClickBtnTime(item)}
+                                >
                                     <option value={item.keyMap} keyMap={index}>{language === languages.VI ? item.valueVi : item.valueEn}</option>
                                 </div>
                             )
@@ -114,6 +184,11 @@ class ManagerShedule extends Component {
                     }
 
 
+                </div>
+                <div className="container"
+                    onClick={() => this.handleSaveShedule()}
+                >
+                    Save
                 </div>
             </>
 
