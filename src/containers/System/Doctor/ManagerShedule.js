@@ -7,8 +7,7 @@ import "./ManagerShedule.scss"
 import DatePicker from '../../../components/Input/DatePicker';
 import { toast } from 'react-toastify';
 import _ from 'lodash'
-import moment from 'moment';
-import { FormattedMessage } from 'react-intl';
+import { saveBulkScheduleDoctor } from '../../../services/userService'
 
 
 class ManagerShedule extends Component {
@@ -74,7 +73,6 @@ class ManagerShedule extends Component {
         }
         return result
 
-        console.log("check result in build: ", result)
     }
 
     handleChange = (selectedOption) => {
@@ -101,7 +99,7 @@ class ManagerShedule extends Component {
         }
     }
 
-    handleSaveShedule = () => {
+    handleSaveShedule = async () => {
         let { rangeTime, selectedOption, currentDate } = this.state
         let result = []
 
@@ -114,7 +112,9 @@ class ManagerShedule extends Component {
             return
         }
 
-        let formateDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER)
+        // let formateDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER)
+        // let formateDate = moment(currentDate).unix()
+        let formateDate = new Date(currentDate).getTime()
 
         if (rangeTime && rangeTime.length > 0) {
             let selectedTime = rangeTime.filter(item => item.isSelected === true)
@@ -123,7 +123,7 @@ class ManagerShedule extends Component {
                     let object = {}
                     object.doctorId = selectedOption.value
                     object.date = formateDate
-                    object.time = shedule.keyMap
+                    object.timeType = shedule.keyMap
                     result.push(object)
                 })
 
@@ -133,7 +133,19 @@ class ManagerShedule extends Component {
             }
         }
 
+        let res = await saveBulkScheduleDoctor({
+            arrSchedule: result,
+            doctorId: selectedOption.value,
+            date: formateDate
+        })
+
         console.log('check result from managerahedule: ', result)
+        console.log('check result from managerahedule typeof: ', typeof result)
+
+        console.log(selectedOption.value)
+        console.log(formateDate)
+        console.log('check res from managerahedule: ', res)
+
     }
 
     render() {
