@@ -139,13 +139,6 @@ class ManagerShedule extends Component {
             date: formateDate
         })
 
-        console.log('check result from managerahedule: ', result)
-        console.log('check result from managerahedule typeof: ', typeof result)
-
-        console.log(selectedOption.value)
-        console.log(formateDate)
-        console.log('check res from managerahedule: ', res)
-
     }
 
     render() {

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import "./DoctorSchedule.scss";
 import moment from "moment";
 import { getScheduleDoctorByDate } from '../../../services/userService'
+import { rearg } from "lodash";
 
 class DoctorSchedule extends Component {
 
@@ -10,6 +11,7 @@ class DoctorSchedule extends Component {
         super(props);
         this.state = {
             allDays: [],
+            time: ''
 
         }
     }
@@ -37,12 +39,17 @@ class DoctorSchedule extends Component {
             let doctorId = this.props.doctorIdFromPatient
             let date = event.target.value
             let res = await getScheduleDoctorByDate(doctorId, date)
-            console.log("check res >> : ", res)
+            console.log('check res: ', res)
+            if (res && res.data) {
+                this.setState({
+                    time: res.data
+                })
+            }
         }
     }
 
     render() {
-        let { allDays } = this.state
+        let { allDays, time } = this.state
         return (
             <>
                 <div className='grid'>
@@ -59,6 +66,17 @@ class DoctorSchedule extends Component {
                                 )
                             })}
                     </select>
+
+                    <div className="time-box">
+                        {time && time.length > 0 &&
+                            time.map((item, index) => {
+                                return (
+                                    <div className="time" key={index}>{item.timeTypeData.valueVi}</div>
+                                )
+                            })
+                        }
+
+                    </div>
                 </div>
             </>
         );
