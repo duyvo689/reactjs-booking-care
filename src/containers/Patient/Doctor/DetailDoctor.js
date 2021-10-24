@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import "./DetailDoctor.scss";
 import HomeHeader from "../../HomePage/HomeHeader"
 import { getDetailDoctorService } from '../../../services/userService'
-
+import DoctorSchedule from "./DoctorSchedule";
 class DetailDoctor extends Component {
 
     constructor(props) {
@@ -60,7 +60,12 @@ class DetailDoctor extends Component {
                                 {description}
                             </div>
                         </div>
+                    </div>
 
+                    <div className="doctor-schedule">
+                        <DoctorSchedule
+                            doctorIdFromPatient={data && data.id ? data.id : -1}
+                        />
                     </div>
 
                     <div className="doctor-post"
