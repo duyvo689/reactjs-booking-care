@@ -5,6 +5,9 @@ import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
 import 'react-markdown-editor-lite/lib/index.css';
 import * as actions from '../../../store/actions'
+import { languages, CommonUtils } from "../../../utils"
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 
 
 const mdParser = new MarkdownIt(/* Markdown-it options */);
@@ -15,10 +18,16 @@ class EditerHandBook extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            nameBook: '',
             contentHTML: '',
             contentMarkdown: '',
 
             allBooks: [],
+
+            isLightBox: false,
+            avatar: '',
+            imgAvt: '',
+
         }
     }
 
@@ -50,8 +59,30 @@ class EditerHandBook extends Component {
         this.props.saveOneHandBook({
             contentHTML: this.state.contentHTML,
             contentMarkdown: this.state.contentMarkdown,
+            avatar: this.state.avatar,
+            nameBook: this.state.nameBook
         })
-        console.log("check cem sao", this.state)
+        console.log("check xem sao", this.state)
+    }
+
+
+    handlerUpImg = async (event) => {
+        let data = event.target.files;
+        let file = data[0]
+        if (file) {
+            let base64 = await CommonUtils.getBase64(file)
+            let objectUrl = URL.createObjectURL(file)
+            this.setState({
+                imgAvt: objectUrl,
+                avatar: base64
+            })
+        }
+    }
+
+    handleOnchangeDescription = (event) => {
+        this.setState({
+            nameBook: event.target.value
+        })
     }
 
     handleEditBook = () => {
@@ -94,13 +125,58 @@ class EditerHandBook extends Component {
                         </table>
                     </div>
 
+                    <div className="row">
+                        <div className="col-6">
+                            <label>Tiêu đề bài viết</label>
+                            <textarea id="w3review" name="w3review"
+                                rows="4" cols="50"
+                                style={{ border: '1px solid', width: '100%', alignItems: 'center' }}
+                                onChange={(event) => this.handleOnchangeDescription(event)}
+                                value={this.state.nameBook}
+                            >
+
+                            </textarea>
+                        </div>
+
+                        <div className="form-group col-4 ">
+                            <label htmlFor="inputZip">Hình ảnh bài viết</label>
+                            <input type="file"
+                                className="form-control" id="inputZip"
+                                onChange={(event) => this.handlerUpImg(event)}
+                            />
+                            <div className="preview-img"
+                                style={{
+                                    marginTop: "5px",
+                                    maxWidth: "270px", height: "90px",
+                                    border: "1px solid",
+                                    backgroundImage: `url(${this.state.imgAvt})`,
+                                    backgroundPosition: 'center',
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundSize: 'contain',
+                                    cursor: 'pointer'
+                                }}
+                                onClick={() => this.setState({ isLightBox: true })}
+                            >
+                            </div>
+                        </div>
+                    </div>
+
                     <div className="container mt-3">
                         <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={({ html, text }) => this.handleEditorChange({ html, text })} />
-
-                        <button onClick={() => this.handleOnchangeSaveMarkdown()}>Lưu thông tin</button>
+                        <button type="submit"
+                            className="btn btn-primary mt-4"
+                            onClick={() => this.handleOnchangeSaveMarkdown()}
+                        >Submit</button>
                         <br></br>
                     </div>
                 </div>
+
+                {this.state.isLightBox && (
+                    <Lightbox
+                        mainSrc={this.state.imgAvt}
+                        onCloseRequest={() => this.setState({ isLightBox: false })}
+                    />
+                )}
             </>
         )
     }

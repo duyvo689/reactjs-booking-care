@@ -87,12 +87,12 @@ class UserManageRedux extends Component {
         }
     }
 
-    handlerEditImgUser = (user) => {
-        let imageBase64 = ''
-        if (user.image) {
-            imageBase64 = new Buffer(user.image, 'base64').toString('binary')
-        }
-    }
+    // handlerEditImgUser = (user) => {
+    //     let imageBase64 = ''
+    //     if (user.image) {
+    //         imageBase64 = new Buffer(user.image, 'base64').toString('binary')
+    //     }
+    // }
 
     handleSaveUser = () => {
         console.log("check state: ", this.state)

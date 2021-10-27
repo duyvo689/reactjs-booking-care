@@ -236,7 +236,7 @@ export const saveDetailDoctorStart = (data) => {
                     type: actionTypes.SAVE_DETAIL_DOCTOR_SUCCESS,
                 })
             } else {
-                toast.error("Lưu dữ liệu thành công")
+                toast.error("Không thành công")
                 dispatch({
                     type: actionTypes.SAVE_DETAIL_DOCTOR_FAIlDED
                 })
@@ -288,7 +288,7 @@ export const saveHandBookStart = (data) => {
                     type: actionTypes.SAVE_ONE_BOOK_SUCCESS
                 })
             } else {
-                toast.error("Lưu dữ liệu thành công")
+                toast.error("Không thành công")
                 dispatch({
                     type: actionTypes.SAVE_ONE_BOOK_FAIlDED
                 })

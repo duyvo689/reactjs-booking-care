@@ -100,6 +100,7 @@ class EditerDoctor extends Component {
 
                         </div>
                         <div className="col-8">
+                            <label>Mô tả bác sĩ</label>
                             <textarea id="w3review" name="w3review"
                                 rows="4" cols="50"
                                 style={{ border: '1px solid', width: '100%' }}

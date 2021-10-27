@@ -63,10 +63,10 @@ class HomeHeader extends Component {
               <a href="#blogs"><FormattedMessage id="homeheader.blogs" /></a>
             </nav>
 
-            <div className="language">
+            {/* <div className="language">
               <div onClick={() => this.handleLanguage(languages.VI)} className={this.state.isVI ? `active` : ''}>VI</div>
               <div onClick={() => this.handleLanguage(languages.EN)} className={this.state.isEN ? `active` : ''}>EN</div>
-            </div>
+            </div> */}
             <div className="icons">
               <div className="fas fa-bars" id="menu-btn"></div>
               <div onClick={() => this.handleSearchForm()} className="fas fa-search" id="search-btn"></div>
