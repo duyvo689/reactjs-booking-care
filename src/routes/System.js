@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { Redirect, Route, Switch } from 'react-router-dom';
 import UserManage from '../containers/System/UserManage';
 import UserManageRedux from '../containers/System/Admin/UserManageRedux';
-import EditerContent from '../containers/System/Admin/EditerContent';
+import EditerDoctor from '../containers/System/Admin/EditerDoctor';
+import EditerHandBook from '../containers/System/Admin/EditerHandBook';
 import Header from '../containers/Header/Header';
 
 class System extends Component {
@@ -18,7 +19,8 @@ class System extends Component {
                         <Switch>
                             <Route path="/system/user-manage" component={UserManage} />
                             <Route path="/system/CRUD-user-redux" component={UserManageRedux} />
-                            <Route path="/system/editer-content" component={EditerContent} />
+                            <Route path="/system/editer-content-doctor" component={EditerDoctor} />
+                            <Route path="/system/editer-content-handbook" component={EditerHandBook} />
                             <Route component={() => { return (<Redirect to={systemMenuPath} />) }} />
                         </Switch>
                     </div>

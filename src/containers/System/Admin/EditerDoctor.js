@@ -12,7 +12,7 @@ import { result } from 'lodash';
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
 
-class EditerContent extends Component {
+class EditerDoctor extends Component {
 
     constructor(props) {
         super(props);
@@ -137,4 +137,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditerContent);
+export default connect(mapStateToProps, mapDispatchToProps)(EditerDoctor);

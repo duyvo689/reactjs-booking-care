@@ -1,5 +1,9 @@
 import actionTypes from './actionTypes';
-import { getAllUsers, getAllCodeService, createNewUserService, getTopDoctorHomeService, getAllDoctorService, saveDetailDoctorService } from '../../services/userService';
+import {
+    getAllUsers, getAllCodeService, createNewUserService,
+    getTopDoctorHomeService, getAllDoctorService, saveDetailDoctorService,
+    getAllHandBookService, saveHanbookService
+} from '../../services/userService';
 import { toast } from 'react-toastify';
 
 
@@ -242,6 +246,58 @@ export const saveDetailDoctorStart = (data) => {
             console.log(" ", e)
             dispatch({
                 type: actionTypes.SAVE_DETAIL_DOCTOR_FAIlDED
+            })
+        }
+    }
+}
+
+
+export const fetchAllHandBookStart = () => {
+    return async (dispatch, getStart) => {
+        try {
+            let res = await getAllHandBookService('')
+            console.log("check get all handbook from adminAction: ", res)
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_BOOK_SUCCESS,
+                    dataHandBook: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_BOOK_FAIlDED
+                })
+            }
+        }
+        catch (e) {
+            console.log(" ", e)
+            dispatch({
+                type: actionTypes.FETCH_ALL_BOOK_FAIlDED
+            })
+        }
+    }
+}
+
+// save one handbook 
+export const saveHandBookStart = (data) => {
+    return async (dispatch, getStart) => {
+        try {
+            let res = await saveHanbookService(data)
+            if (res && res.errCode === 0) {
+                toast.success("Lưu dữ liệu thành công")
+                dispatch({
+                    type: actionTypes.SAVE_ONE_BOOK_SUCCESS
+                })
+            } else {
+                toast.error("Lưu dữ liệu thành công")
+                dispatch({
+                    type: actionTypes.SAVE_ONE_BOOK_FAIlDED
+                })
+            }
+        }
+        catch (e) {
+            console.log(" ", e)
+            dispatch({
+                type: actionTypes.SAVE_ONE_BOOK_FAIlDED
             })
         }
     }

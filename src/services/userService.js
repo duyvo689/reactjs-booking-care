@@ -49,6 +49,14 @@ const getScheduleDoctorByDate = (doctorId, date) => {
     return axios.get(`http://localhost:8080/api/get-schedule-doctor-by-date?doctorId=${doctorId}&date=${date}`)
 }
 
+const getAllHandBookService = () => {
+    return axios.get(`http://localhost:8080/api/get-all-books`)
+}
+
+const saveHanbookService = (data) => {
+    return axios.post(`http://localhost:8080/api/create-one-handbook`, data)
+}
+
 
 export {
     handleLoginApi, getAllUsers,
@@ -56,5 +64,6 @@ export {
     editUserService, getAllCodeService,
     getTopDoctorHomeService, getAllDoctorService,
     saveDetailDoctorService, getDetailDoctorService,
-    saveBulkScheduleDoctor, getScheduleDoctorByDate
+    saveBulkScheduleDoctor, getScheduleDoctorByDate,
+    getAllHandBookService, saveHanbookService
 }

@@ -23,7 +23,11 @@ export const adminMenu = [
             // },
 
             {
-                name: 'menu.admin.editer-content', link: '/system/editer-content'
+                name: 'menu.admin.editer-content-doctor', link: '/system/editer-content-doctor'
+            },
+
+            {//quản lý bài đăng blog
+                name: 'menu.admin.editer-content-handbook', link: '/system/editer-content-handbook'
             },
 
             { //quản lý lịch khám

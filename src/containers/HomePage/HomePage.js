@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import HomeHeader from './HomeHeader';
 import Specialty from './Section/Specialty';
 import TopDoctor from './Section/TopDoctor';
+import HandBook from './Section/HandBook';
 import "./HomePage.scss"
 
 import "slick-carousel/slick/slick.css";
@@ -17,6 +18,7 @@ class HomePage extends Component {
                 <HomeHeader isShowBanner={true} />
                 <Specialty />
                 <TopDoctor />
+                <HandBook />
             </div>
         );
     }
