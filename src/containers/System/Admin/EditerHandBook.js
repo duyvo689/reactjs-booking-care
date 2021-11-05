@@ -33,8 +33,6 @@ class EditerHandBook extends Component {
 
     componentDidMount() {
         this.props.loadAllBooks()
-        this.props.saveOneHandBook()
-        console.log(">>check managerShedule", this.props)
     }
 
 
