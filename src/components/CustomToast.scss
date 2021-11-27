@@ -53,7 +53,7 @@
 
         .date {
           float         : right;
-          font-size     : $base-size - 2px;
+          font-size     : $base-size;
           vertical-align: middle;
           margin-right  : 5px;
           margin-bottom : 0;
@@ -67,7 +67,7 @@
       }
 
       .toast-content {
-        font-size: $base-size - 2px;
+        font-size: $base-size;
       }
     }
   }

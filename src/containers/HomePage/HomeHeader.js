@@ -3,7 +3,12 @@ import { connect } from "react-redux";
 import { NavLink } from "reactstrap";
 import "./HomeHeader.scss";
 import { FormattedMessage } from 'react-intl';
-import { languages } from "../../utils"
+import { languages } from "../../utils";
+import homeIcon1 from "../../assets/home-icon-1.png"
+import homeIcon2 from "../../assets/home-icon-2.png"
+import homeIcon3 from "../../assets/home-icon-3.png"
+import homeIcon4 from "../../assets/home-icon-4.png"
+import homeIcon5 from "../../assets/home-icon-5.png"
 
 import { changeLanguageApp } from "../../store/actions"
 
@@ -50,64 +55,84 @@ class HomeHeader extends Component {
     return (
       <>
         <div className="header">
-          <div className="grid-header">
-
-            <a href="#" className="logo"> <i className="fas fa-hospital-alt"></i> groco </a>
-
-            <nav className="navbar">
-              <a href="#home"><FormattedMessage id="homeheader.home" /></a>
-              <a href="#features"><FormattedMessage id="homeheader.booking" /></a>
-              <a href="#products"><FormattedMessage id="homeheader.clinic" /></a>
-              <a href="#categories"><FormattedMessage id="homeheader.specialty" /></a>
-              <a href="#review"><FormattedMessage id="homeheader.doctors" /></a>
-              <a href="#blogs"><FormattedMessage id="homeheader.blogs" /></a>
-            </nav>
-
-            {/* <div className="language">
-              <div onClick={() => this.handleLanguage(languages.VI)} className={this.state.isVI ? `active` : ''}>VI</div>
-              <div onClick={() => this.handleLanguage(languages.EN)} className={this.state.isEN ? `active` : ''}>EN</div>
-            </div> */}
-            <div className="icons">
-              <div className="fas fa-bars" id="menu-btn"></div>
-              <div onClick={() => this.handleSearchForm()} className="fas fa-search" id="search-btn"></div>
-              <div onClick={() => this.handleLoginForm()} className="fas fa-user" id="login-btn"></div>
+          <div className="navbar_home container">
+            <div className="logo">
+              <a href="#" className="logo_link">
+                <i className="fas fa-hospital-alt logo_icon"></i>
+                DoctorCare
+              </a>
             </div>
-
-
-            <form action="" className={`search-form ${this.state.isSearch ? `active` : ''}`}>
-              {/* <FormattedMessage id="homeheader.search" />
-            {placeholder =>
-              <input
-                className="search-input"
-                placeholder={placeholder}
-                type="search"
-                id="search-box"
-              />
-            } */}
-              <input type="search" id="search-box" placeholder="search here.." />
-              <label htmlFor="search-box" className="fas fa-search"></label>
-            </form>
-
-            <form action="" className={`login-form ${this.state.isLogin ? `active` : ''}`}>
-              <h3>login now</h3>
-              <input type="email" placeholder="your email" className="box" />
-              <input type="password" placeholder="your password" className="box" />
-              <p>forget your password <a href="#">click here</a></p>
-              <p>don't have an account <a href="#">create now</a></p>
-              <input type="submit" value="login now" className="btn-login" />
-            </form>
+            <div className="content">
+              <div className="content_children">
+                <p> <b>Chuyên Khoa</b> </p>
+                Tìm bác sĩ theo chuyên khoa
+              </div>
+              <div className="content_children">
+                <p> <b>Cơ sở y tế</b> </p>
+                Chọn bệnh viện phòng khám
+              </div>
+              <div className="content_children">
+                <p> <b>Bác sĩ</b> </p>
+                Chọn bác sĩ giỏi
+              </div>
+              <div className="content_children">
+                <p> <b>Gói khám</b> </p>
+                Khám sức khỏe tổng quát
+              </div>
+            </div>
+            <div className="login">
+              <a href> Đăng nhập/ đăng ký</a>
+            </div>
           </div>
         </div>
 
         {this.props.isShowBanner === true &&
-          <section className="home" id="home">
-            <div className="content">
-              <h3><FormattedMessage id="banner.slogan-1" />  <span><FormattedMessage id="banner.slogan-2" /> </span><FormattedMessage id="banner.slogan-3" /> </h3>
-              <p><FormattedMessage id="banner.title" /> </p>
-              <a href="#" className="btn-login"><FormattedMessage id="banner.btn-banner" /> </a>
+          <div className="home" id="home">
+            <div className="home_cover">
+              <div className="content">
+                <h3><FormattedMessage id="banner.slogan-1" />  <span><FormattedMessage id="banner.slogan-2" /> </span><FormattedMessage id="banner.slogan-3" /> </h3>
+                <p><FormattedMessage id="banner.title" /> </p>
+
+                <a href="#" className="btn-login"><FormattedMessage id="banner.btn-banner" /> </a>
+              </div>
+            </div>
+            <div className="home_cover-footer">
+
+              <div className="home_list container">
+                <div className="home_item">
+                  <div className="home_circle">
+                    <img className="home_img" src={homeIcon1} alt="" />
+                  </div>
+                  <h3 className="home_title">Khám <br></br> chuyên khoa</h3>
+                </div>
+                <div className="home_item">
+                  <div className="home_circle">
+                    <img className="home_img" src={homeIcon2} alt="" />
+                  </div>
+                  <h3 className="home_title">Khám <br></br> từ xa</h3>
+                </div>
+                <div className="home_item">
+                  <div className="home_circle">
+                    <img className="home_img" src={homeIcon3} alt="" />
+                  </div>
+                  <h3 className="home_title">Khám <br></br> tổng quát</h3>
+                </div>
+                <div className="home_item">
+                  <div className="home_circle">
+                    <img className="home_img" src={homeIcon4} alt="" />
+                  </div>
+                  <h3 className="home_title">Xét nghiệm<br></br> y học</h3>
+                </div>
+                <div className="home_item">
+                  <div className="home_circle">
+                    <img className="home_img" src={homeIcon5} alt="" />
+                  </div>
+                  <h3 className="home_title">Sức khoẻ<br></br> tinh thần</h3>
+                </div>
+              </div>
             </div>
 
-          </section>
+          </div>
         }
       </>
     );

@@ -1,21 +1,15 @@
-/*
- * General styles
- */
 body,
 html {
   background       : #fff;
-  background-image : "#fff";
   background-repeat: no-repeat;
   background-size  : cover;
   font-family      : $fontmain;
-  font-size        : $base-size - 2px;
-  height           : 100vh;
+  font-size        : 1rem;
   overflow         : hidden;
+  scroll-behavior  : smooth;
 }
 
 * {
-  // font-family    : 'Poppins', sans-serif;
-  font-family    : 'Roboto', sans-serif;
   margin         : 0;
   padding        : 0;
   box-sizing     : border-box;
@@ -25,11 +19,46 @@ html {
   transition     : all .2s linear;
 }
 
-.title {
-  text-align    : center;
-  text-transform: uppercase;
-  font-weight   : bold;
-  font-size     : $base-size + 4px;
-  margin-top    : 15px;
-  color         : $colormain;
+button {
+  cursor : pointer;
+  border : none;
+  outline: none;
+}
+
+h1,
+h2,
+h3 {
+  color      : var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height   : auto;
+}
+
+.container {
+  max-width: 1120px;
+}
+
+.section {
+  background : #fff;
+  width      : 100%;
+  padding-top: 4rem;
+}
+
+.section_heading {
+  left       : 0;
+  color      : #4ABDE2;
+  font-size  : 2.6rem;
+  padding    : 1rem 0 2.5rem 0.5rem;
+  font-weight: 500;
 }

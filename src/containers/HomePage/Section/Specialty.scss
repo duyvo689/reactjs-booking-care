@@ -1,78 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
 
-.specialty {
-    background : #fff;
-    width      : 100%;
-    padding    : 2rem 9%;
-    padding-top: 7.5rem;
+.specialty-card {
+    padding: 6px;
 
-    .grid {
-        width    : 100%;
-        max-width: 1200px;
-        margin   : 0 auto;
+    .card {
+        cursor       : pointer;
+        height       : 200px;
+        max-width    : 100%;
+        border       : .1rem solid rgba(0, 0, 0, .1);
+        border-radius: 1rem;
 
-        .heading {
-            text-align : center;
-            color      : var(--orange);
-            font-size  : 3rem;
-            font-weight: normal;
-            padding    : 0;
+        .card-img {
+            min-height             : 156px;
+            width                  : 100%;
+            background-position    : center;
+            background-repeat      : no-repeat;
+            background-size        : cover;
+            border-top-right-radius: 9px;
+            border-top-left-radius : 9px
         }
 
-        .description {
-            font-size : 1.7rem;
-            text-align: center;
-            color     : #999;
-            max-width : 80rem;
-            margin    : 0 auto 2rem;
-        }
+        .card-body {
+            align-items: center;
+            position   : relative;
 
-        .specialty-card {
-            padding: 6px;
-
-            .card {
-                min-height   : 302px;
-                max-width    : 100%;
-                border       : .1rem solid rgba(0, 0, 0, .1);
-                border-radius: 1rem;
-
-                .card-img {
-                    min-height             : 156px;
-                    width                  : 100%;
-                    background-position    : center;
-                    background-repeat      : no-repeat;
-                    background-size        : cover;
-                    border-top-right-radius: 9px;
-                    border-top-left-radius : 9px
-                }
-
-
-                .card-body {
-                    // padding        : 20px;
-                    flex-direction : column;
-                    display        : flex;
-                    justify-content: space-between;
-
-                    .card-title {
-                        font-size: 1.4rem;
-                    }
-
-                    .card-text {
-                        text-overflow     : ellipsis;
-                        -webkit-line-clamp: 3;
-                        -webkit-box-orient: vertical;
-                        display           : -webkit-box;
-                        overflow          : hidden;
-                        min-height        : 60px;
-                    }
-
-                    .btn {
-                        background: var(--orange);
-                        border    : none;
-                        margin    : 0 1rem;
-                    }
-                }
+            .card-title {
+                position : absolute;
+                font-size: 1.4rem;
+                margin   : auto 0;
+                top      : 50%;
+                transform: translateY(-50%);
             }
+        }
+    }
+
+    .card:hover {
+        .card-title {
+            color: #4ABDE2;
         }
     }
 }

@@ -68,40 +68,34 @@ class TopDoctor extends Component {
             ]
         }
         return (
-            <div className="top-doctor">
-                <div className="grid" >
-                    <h1 className="heading">what services we offer</h1>
-                    <p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nulla assumenda et
-                        laboriosam est pariatur minima sequi libero perferendis totam.</p>
-                    <Slider {...settings}>
+            <div className="top-doctor container section">
+                <h1 className="section_heading">Bác sĩ nổi bật tuần qua</h1>
+                <Slider {...settings}>
 
-                        {arrDoctors && arrDoctors.length > 0 && arrDoctors.map((item, index) => {
-                            let imageBase64 = ''
-                            if (item.image) {
-                                imageBase64 = new Buffer(item.image, 'base64').toString('binary')
-                            }
-                            if (index === 0) {
-                                console.log("<<<>>>>>:", item)
-                            }
+                    {arrDoctors && arrDoctors.length > 0 && arrDoctors.map((item, index) => {
+                        let imageBase64 = ''
+                        if (item.image) {
+                            imageBase64 = new Buffer(item.image, 'base64').toString('binary')
+                        }
+                        if (index === 0) {
+                            console.log("<<<>>>>>:", item)
+                        }
 
-                            let nameVi = `${item.positionData.valueVi}, ${item.firstName} ${item.lastName}`
-                            return (
-                                <div className="top-doctor-card" key="item.id" onClick={() => this.handleViewDetail(item)}>
-                                    <div className="card" >
-                                        <div className="card-img-top card-img" style={{ backgroundImage: `url(${imageBase64})` }}></div>
-                                        <div className="card-body">
-                                            <h5 className="card-title">{nameVi}</h5>
-                                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a className="btn btn-primary">Go somewhere</a>
-                                        </div>
+                        let nameVi = `${item.positionData.valueVi}, ${item.firstName} ${item.lastName}`
+                        return (
+                            <div className="top-doctor-card" key="item.id" onClick={() => this.handleViewDetail(item)}>
+                                <div className="card_top-doctor" >
+                                    <div className="card-img-top card-img" style={{ backgroundImage: `url(${imageBase64})` }}></div>
+                                    <div className="card-body">
+                                        <h5 className="card-title">{nameVi}</h5>
                                     </div>
                                 </div>
-                            )
-                        })}
+                            </div>
+                        )
+                    })}
 
 
-                    </Slider>
-                </div >
+                </Slider>
             </div >
         );
     }

@@ -73,36 +73,30 @@ class HandBook extends Component {
             ]
         }
         return (
-            <div className="hand-book">
-                <div className="grid" >
-                    <h1 className="heading">what services we offer</h1>
-                    <p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque nulla assumenda et
-                        laboriosam est pariatur minima sequi libero perferendis totam.</p>
-                    <Slider {...settings}>
-                        {arrBooks && arrBooks.length > 0 && arrBooks.map((item, index) => {
-                            let imageBase64 = ''
-                            if (item.image) {
-                                imageBase64 = new Buffer(item.image, 'base64').toString('binary')
-                            }
-                            if (index === 0) {
-                                console.log("<<<>>>>>:", item)
-                            }
-                            return (
-                                <div className="hand-book-card" key={index} onClick={() => this.handleViewDetail(item)}>
-                                    <div className="card" >
-                                        <div className="card-img-top card-img" style={{ backgroundImage: `url(${imageBase64})` }}></div>
-                                        <div className="card-body">
-                                            <h5 className="card-title">{item.nameBook}</h5>
-                                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                            <a className="btn btn-primary">Go somewhere</a>
-                                        </div>
+            <div className="hand-book container section">
+                <h1 className="section_heading">Cẩm nang sức khoẻ</h1>
+                <Slider {...settings}>
+                    {arrBooks && arrBooks.length > 0 && arrBooks.map((item, index) => {
+                        let imageBase64 = ''
+                        if (item.image) {
+                            imageBase64 = new Buffer(item.image, 'base64').toString('binary')
+                        }
+                        if (index === 0) {
+                            console.log("<<<>>>>>:", item)
+                        }
+                        return (
+                            <div className="hand-book-card" key={index} onClick={() => this.handleViewDetail(item)}>
+                                <div className="card" >
+                                    <div className="card-img-top card-img" style={{ backgroundImage: `url(${imageBase64})` }}></div>
+                                    <div className="card-body">
+                                        <h5 className="card-title">{item.nameBook}</h5>
                                     </div>
                                 </div>
-                            )
-                        })}
+                            </div>
+                        )
+                    })}
 
-                    </Slider>
-                </div >
+                </Slider>
             </div >
         );
     }
