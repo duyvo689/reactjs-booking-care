@@ -94,23 +94,28 @@
             width     : 100%;
             position  : absolute;
             top       : 50%;
-            transform : translateY(-50%);
+            transform : translateY(-80%);
 
             h3 {
                 color      : #fff;
-                font-size  : 3.5rem;
+                font-size  : 3.75rem;
                 font-weight: 800;
+                text-shadow: 1px 1px 1px #333;
 
                 span {
-                    color: #000;
+                    color: #FFC10F;
                 }
             }
 
             p {
-                color      : var(--light-color);
-                font-size  : 1.7rem;
+                margin     : auto;
+                color      : #4ABDE2;
+                font-size  : 2rem;
                 padding    : 1rem 0;
                 line-height: 1.8;
+                width      : 60%;
+                text-shadow: 1px 1px 1px rgb(75, 102, 109);
+
             }
         }
     }

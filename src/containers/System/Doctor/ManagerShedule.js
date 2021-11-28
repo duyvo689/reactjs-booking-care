@@ -150,7 +150,7 @@ class ManagerShedule extends Component {
         return (
 
             <>
-                <div className="container mt-5">
+                <div className="manager_shedule mt-5">
                     <div className="row">
                         <div className="col-6">
                             <label>Chọn bác sĩ</label>
@@ -173,7 +173,7 @@ class ManagerShedule extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="container time-box">
+                <div className="time-box">
 
                     {rangeTime && rangeTime.length > 0 &&
                         rangeTime.map((item, index) => {
@@ -187,8 +187,6 @@ class ManagerShedule extends Component {
                             )
                         })
                     }
-
-
                 </div>
                 <div className="container"
                     onClick={() => this.handleSaveShedule()}

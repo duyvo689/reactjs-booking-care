@@ -4,6 +4,8 @@ import HomeHeader from './HomeHeader';
 import Specialty from './Section/Specialty';
 import TopDoctor from './Section/TopDoctor';
 import HandBook from './Section/HandBook';
+import DownloadApp from './Section/DownloadApp'
+import HomeFooter from './HomeFooter';
 import "./HomePage.scss"
 
 import "slick-carousel/slick/slick.css";
@@ -19,6 +21,8 @@ class HomePage extends Component {
                 <Specialty />
                 <TopDoctor />
                 <HandBook />
+                <DownloadApp />
+                <HomeFooter />
             </div>
         );
     }

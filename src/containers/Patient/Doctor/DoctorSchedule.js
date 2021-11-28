@@ -53,7 +53,7 @@ class DoctorSchedule extends Component {
         return (
             <>
                 <div className='grid'>
-                    <select onChange={(event) => this.handleOnChangeSelect(event)}>
+                    <select className="time_select" onChange={(event) => this.handleOnChangeSelect(event)}>
                         {allDays && allDays.length > 0 &&
                             allDays.map((item, index) => {
                                 return (
@@ -62,12 +62,18 @@ class DoctorSchedule extends Component {
                                     >
                                         {item.label}
                                     </option>
-
                                 )
                             })}
                     </select>
 
                     <div className="time-box">
+                        <div className="time_title">
+                            <i class="fas fa-calendar-alt time_icon"></i>
+                            <span className="time_name">
+                                LỊCH KHÁM
+                            </span>
+                        </div>
+
                         {time && time.length > 0 &&
                             time.map((item, index) => {
                                 return (

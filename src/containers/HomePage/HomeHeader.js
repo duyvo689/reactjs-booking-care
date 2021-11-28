@@ -93,7 +93,6 @@ class HomeHeader extends Component {
                 <h3><FormattedMessage id="banner.slogan-1" />  <span><FormattedMessage id="banner.slogan-2" /> </span><FormattedMessage id="banner.slogan-3" /> </h3>
                 <p><FormattedMessage id="banner.title" /> </p>
 
-                <a href="#" className="btn-login"><FormattedMessage id="banner.btn-banner" /> </a>
               </div>
             </div>
             <div className="home_cover-footer">
