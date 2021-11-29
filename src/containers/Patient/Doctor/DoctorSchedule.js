@@ -52,7 +52,8 @@ class DoctorSchedule extends Component {
         let { allDays, time } = this.state
         return (
             <>
-                <div className='grid'>
+
+                <div className='doctor_schedule'>
                     <select className="time_select" onChange={(event) => this.handleOnChangeSelect(event)}>
                         {allDays && allDays.length > 0 &&
                             allDays.map((item, index) => {

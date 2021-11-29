@@ -37,4 +37,12 @@
         margin-right : 1rem;
         margin-bottom: .5rem;
     }
+
+    .time:hover {
+        background: rgb(138, 221, 138);
+    }
+
+    .active {
+        background: rgb(26, 211, 26);
+    }
 }

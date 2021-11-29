@@ -1,14 +1,16 @@
 body,
 html {
-  background          : #fff;
-  background-repeat   : no-repeat;
-  background-size     : cover;
-  font-family         : $fontmain;
-  // font-size        : 1rem;
-  overflow            : hidden;
-  scroll-behavior     : smooth;
-  font-size           : 62.5%;
+  background       : #fff;
+  background-repeat: no-repeat;
+  background-size  : cover;
+  font-family      : $fontmain;
+  overflow         : hidden;
+  scroll-behavior  : smooth;
+  font-size        : 1.5rem;
+}
 
+html {
+  font-size: 62.5%;
 }
 
 * {
@@ -19,6 +21,7 @@ html {
   border         : none;
   text-decoration: none !important;
   transition     : all .2s linear;
+
 }
 
 button {
@@ -57,9 +60,24 @@ img {
 }
 
 .section_heading {
+  position   : relative;
   left       : 0;
   color      : #0aa9df;
   font-size  : 2.6rem;
   padding    : 1rem 0 2.5rem 0.5rem;
   font-weight: 500;
+  z-index    : 1;
+}
+
+.section_heading::before {
+  position           : absolute;
+  content            : '';
+  z-index            : -1;
+  height             : 1px;
+  width              : 100%;
+  // background-color: #FFC10F;
+  background-color   : #7777;
+  top                : 40%;
+  width              : 70%;
+  right              : 0;
 }

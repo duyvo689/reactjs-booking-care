@@ -123,11 +123,13 @@ class UserManage extends Component {
                         userEdit={this.state.userEdit}
                         editUser={this.editUser}
                     />}
-                <div className="btn-add-user" onClick={() => this.handleAddUser()}>
-                    <i className="fas fa-plus"></i>
-                    Add new user
+                <div className="container">
+                    <button className=" btn btn-add-user container" onClick={() => this.handleAddUser()}>
+                        <i className="fas fa-plus"></i>
+                        Thêm mới người dùng
+                    </button>
                 </div>
-                <div className="text-center">
+                <div className="container text-center">
                     <table id="customers">
                         <thead>
                             <tr>

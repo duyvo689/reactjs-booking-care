@@ -97,7 +97,10 @@ class EditerHandBook extends Component {
             <>
                 <div className="container mt-3">
 
-                    <div className="text-center">
+                    <div className="container text-center m-auto mt-5 mb-5">
+                        <h1>TẤT CẢ BÀI VIẾT</h1>
+                    </div>
+                    <div className=" container text-center">
                         <table id="customers">
                             <thead>
                                 <tr>
@@ -123,8 +126,12 @@ class EditerHandBook extends Component {
                         </table>
                     </div>
 
-                    <div className="row">
-                        <div className="col-6">
+                    <div className="container text-center m-auto mt-5 mb-5">
+                        <h1>THÊM BÀI VIẾT MỚI</h1>
+                    </div>
+
+                    <div className=" container row">
+                        <div className="col-8">
                             <label>Tiêu đề bài viết</label>
                             <textarea id="w3review" name="w3review"
                                 rows="4" cols="50"
@@ -145,7 +152,7 @@ class EditerHandBook extends Component {
                             <div className="preview-img"
                                 style={{
                                     marginTop: "5px",
-                                    maxWidth: "270px", height: "90px",
+                                    maxWidth: "350px", height: "90px",
                                     border: "1px solid",
                                     backgroundImage: `url(${this.state.imgAvt})`,
                                     backgroundPosition: 'center',
@@ -160,12 +167,16 @@ class EditerHandBook extends Component {
                     </div>
 
                     <div className="container mt-3">
+                        <label className="mb-4" htmlFor="inputZip">Nội dung bài viết</label>
+
                         <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={({ html, text }) => this.handleEditorChange({ html, text })} />
+                    </div>
+
+                    <div className="container mb-5 mt-4">
                         <button type="submit"
-                            className="btn btn-primary mt-4"
+                            className="btn btn-success p-3"
                             onClick={() => this.handleOnchangeSaveMarkdown()}
-                        >Submit</button>
-                        <br></br>
+                        >Lưu thông tin</button>
                     </div>
                 </div>
 

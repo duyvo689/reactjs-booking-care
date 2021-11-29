@@ -150,51 +150,58 @@ class ManagerShedule extends Component {
         return (
 
             <>
-                <div className="manager_shedule mt-5">
-                    <div className="row">
-                        <div className="col-6">
-                            <label>Chọn bác sĩ</label>
-                            <Select
-                                value={selectedOption}
-                                onChange={this.handleChange}
-                                options={arrDoctors}
-                            />
+                <div className=" container manager_shedule">
+                    <div className=" text-center m-auto mt-5 mb-5">
+                        <h1>THÊM LỊCH KHÁM BỆNH</h1>
+                    </div>
+                    <div className="mt-5">
+                        <div className="row">
+                            <div className="col-6">
+                                <label>Chọn bác sĩ</label>
+                                <Select
+                                    value={selectedOption}
+                                    onChange={this.handleChange}
+                                    options={arrDoctors}
+                                    placeholder="Chọn bác sĩ"
+                                />
 
-                        </div>
-                        <div className="col-6">
-                            <label>Chọn ngày</label>
-                            <DatePicker
-                                onChange={this.handlerOnchangeDatePicker}
-                                value={this.state.currentDate}
-                                minDate={new Date()}
-                                className="form-control date-picker"
-                            />
+                            </div>
+                            <div className="col-6">
+                                <label>Chọn ngày</label>
+                                <DatePicker
+                                    onChange={this.handlerOnchangeDatePicker}
+                                    value={this.state.currentDate}
+                                    minDate={new Date()}
+                                    className="form-control date-picker"
+                                    placeholder="Chọn ngày"
 
+                                />
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="time-box">
-
-                    {rangeTime && rangeTime.length > 0 &&
-                        rangeTime.map((item, index) => {
-                            return (
-                                <div className={`time ${item.isSelected === true ? "active" : ""}`}
-                                    key={index}
-                                    onClick={() => this.handleClickBtnTime(item)}
-                                >
-                                    <option value={item.keyMap} keyMap={index}>{language === languages.VI ? item.valueVi : item.valueEn}</option>
-                                </div>
-                            )
-                        })
-                    }
-                </div>
-                <div className="container"
-                    onClick={() => this.handleSaveShedule()}
-                >
-                    Save
+                    <div className="  time-box mt-5">
+                        {rangeTime && rangeTime.length > 0 &&
+                            rangeTime.map((item, index) => {
+                                return (
+                                    <div className={`time ${item.isSelected === true ? "active" : ""}`}
+                                        key={index}
+                                        onClick={() => this.handleClickBtnTime(item)}
+                                    >
+                                        <option value={item.keyMap} keyMap={index}>{language === languages.VI ? item.valueVi : item.valueEn}</option>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                    <div className=" mb-5 mt-4">
+                        <button type="submit"
+                            className="btn btn-success p-3"
+                            onClick={() => this.handleSaveShedule()}
+                        >Lưu thông tin</button>
+                    </div>
                 </div>
             </>
-
         )
     }
 

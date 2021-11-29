@@ -128,20 +128,22 @@ class UserManageRedux extends Component {
         let language = this.props.language
         return (
             <>
-                <h2 className="container mt-5" >Add user Rudex</h2>
+                <div className="container text-center m-auto mt-5 mb-5">
+                    <h1>THÊM NGƯỜI DÙNG</h1>
+                </div>
 
                 <div className="container mt-3">
                     <div className="row">
                         <div className="form-group col-md-6">
                             <label htmlFor="inputEmail4">Email</label>
-                            <input type="email" className="form-control" placeholder="Email"
+                            <input type="email" className="form-control p-3" placeholder="Email"
                                 value={email}
                                 onChange={(event) => this.onChangeInput(event, 'email')}
                             />
                         </div>
                         <div className="form-group col-md-6">
-                            <label htmlFor="inputPassword4">Password</label>
-                            <input type="password" className="form-control" placeholder="Password"
+                            <label htmlFor="inputPassword4">Mật khẩu</label>
+                            <input type="password" className="form-control p-3" placeholder="Mật khẩu"
                                 value={password}
                                 onChange={(event) => this.onChangeInput(event, 'password')}
                             />
@@ -150,15 +152,15 @@ class UserManageRedux extends Component {
 
                     <div className="row">
                         <div className="form-group col-md-6">
-                            <label htmlFor="inputEmail4">First name</label>
-                            <input type="text" className="form-control" placeholder="First name"
+                            <label htmlFor="inputEmail4">Tên</label>
+                            <input type="text" className="form-control p-3" placeholder="Tên"
                                 value={firstName}
                                 onChange={(event) => this.onChangeInput(event, 'firstName')}
                             />
                         </div>
                         <div className="form-group col-md-6">
-                            <label htmlFor="inputPassword4">Last name</label>
-                            <input type="text" className="form-control" placeholder="Last name"
+                            <label htmlFor="inputPassword4">Họ</label>
+                            <input type="text" className="form-control p-3" placeholder="Họ"
                                 value={lastName}
                                 onChange={(event) => this.onChangeInput(event, 'lastName')}
                             />
@@ -167,15 +169,15 @@ class UserManageRedux extends Component {
 
                     <div className="row">
                         <div className="form-group col-md-4">
-                            <label htmlFor="inputAddress">Phone number</label>
-                            <input type="text" className="form-control" id="inputAddress" placeholder="Phone number"
+                            <label htmlFor="inputAddress">Số điện thoại</label>
+                            <input type="text" className="form-control p-3" id="inputAddress" placeholder="Số điện thoại"
                                 value={phone}
                                 onChange={(event) => this.onChangeInput(event, 'phone')}
                             />
                         </div>
                         <div className="form-group col-md-8">
-                            <label htmlFor="inputAddress">Address</label>
-                            <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St"
+                            <label htmlFor="inputAddress">Địa chỉ</label>
+                            <input type="text" className="form-control p-3" id="inputAddress" placeholder="Địa chỉ"
                                 value={address}
                                 onChange={(event) => this.onChangeInput(event, 'address')}
                             />
@@ -184,7 +186,7 @@ class UserManageRedux extends Component {
 
                     <div className="row">
                         <div className="form-group col-md-3">
-                            <label htmlFor="inputState">Gender</label>
+                            <label htmlFor="inputState">Giới tính</label>
                             <select id="inputState" className="form-control"
                                 onChange={(event) => this.onChangeInput(event, 'gender')}
                             >
@@ -198,7 +200,7 @@ class UserManageRedux extends Component {
                             </select>
                         </div>
                         <div className="form-group col-md-3">
-                            <label htmlFor="inputState">Position</label>
+                            <label htmlFor="inputState">Chức vị</label>
                             <select id="inputState" className="form-control"
                                 value="item.keyMap"
                                 onChange={(event) => this.onChangeInput(event, 'position')}
@@ -213,7 +215,7 @@ class UserManageRedux extends Component {
                             </select>
                         </div>
                         <div className="form-group col-md-3">
-                            <label htmlFor="inputState">RoleID</label>
+                            <label htmlFor="inputState">Quyền truy cập</label>
                             <select id="inputState" className="form-control"
                                 value="item.keyMap"
                                 onChange={(event) => this.onChangeInput(event, 'role')}
@@ -228,9 +230,9 @@ class UserManageRedux extends Component {
                             </select>
                         </div>
                         <div className="form-group col-md-3">
-                            <label htmlFor="inputZip">Images</label>
+                            <label htmlFor="inputZip">Hình ảnh</label>
                             <input type="file"
-                                className="form-control" id="inputZip"
+                                className="form-control p-3" id="inputZip"
                                 onChange={(event) => this.handlerUpImg(event)}
                             />
                             <div className="preview-img"
@@ -249,10 +251,13 @@ class UserManageRedux extends Component {
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div className="container mb-5">
                     <button type="submit"
-                        className="btn btn-primary mt-4"
+                        className="btn btn-success p-3"
                         onClick={() => this.handleSaveUser()}
-                    >Submit</button>
+                    >Lưu thông tin</button>
                 </div>
 
                 {this.state.isLightBox && (

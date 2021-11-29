@@ -7,7 +7,7 @@ import 'react-markdown-editor-lite/lib/index.css';
 import Select from 'react-select';
 import * as actions from '../../../store/actions'
 import { result } from 'lodash';
-
+import './admin.scss'
 
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
@@ -88,6 +88,9 @@ class EditerDoctor extends Component {
         return (
 
             <>
+                <div className="container text-center m-auto mt-5">
+                    <h1>THÊM THÔNG TIN BÁC SĨ</h1>
+                </div>
                 <div className="container mt-5">
                     <div className="row">
                         <div className="col-4 ">
@@ -96,6 +99,7 @@ class EditerDoctor extends Component {
                                 value={this.state.selectedOption.value}
                                 onChange={(options) => this.handleChange(options)}
                                 options={arrDoctors}
+                                placeholder="Chọn bác sĩ"
                             />
 
                         </div>
@@ -106,17 +110,75 @@ class EditerDoctor extends Component {
                                 style={{ border: '1px solid', width: '100%' }}
                                 onChange={(event) => this.handleOnchangeDescription(event)}
                                 value={this.state.description}
+                                placeholder="Mô tả bác sĩ"
                             >
                                 At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
                             </textarea>
                         </div>
                     </div>
+
+                    <div className="row mt-4">
+                        <div className="col-4 ">
+                            <label>Chọn giá</label>
+                            <Select
+                                // value={this.state.selectedOption.value}
+                                // onChange={(options) => this.handleChange(options)}
+                                // options={arrDoctors}
+                                placeholder="Chọn giá"
+                            />
+
+                        </div>
+                        <div className="col-4 ">
+                            <label>Chọn Phương thức thanh toán</label>
+                            <Select
+                                // value={this.state.selectedOption.value}
+                                // onChange={(options) => this.handleChange(options)}
+                                // options={arrDoctors}
+                                placeholder="Phương thức thanh toán"
+                            />
+
+                        </div>
+
+                        <div className="col-4 ">
+                            <label>Chọn tỉnh thành</label>
+                            <Select
+                                // value={this.state.selectedOption.value}
+                                // onChange={(options) => this.handleChange(options)}
+                                // options={arrDoctors}
+                                placeholder="Chọn tỉnh thành"
+                            />
+
+                        </div>
+                    </div>
+
+                    <div className="row mt-4">
+                        <div className="col-4 ">
+                            <label>Tên phòng khám</label>
+                            <input type="text" class="form-control" id="" placeholder="" />
+
+                        </div>
+                        <div className="col-4">
+                            <label>Địa chỉ phòng khám</label>
+                            <input type="text" class="form-control" id="" placeholder="" />
+                        </div>
+
+                        <div className="col-4">
+                            <label>Ghi chú thêm</label>
+                            <input type="text" class="form-control" id="" placeholder="" />
+                        </div>
+                    </div>
                 </div>
-                <div className="container mt-3">
+                <div className="container mt-5">
+
+                    <label className="mb-2">Thông tin chi tiết bác sĩ</label>
+
                     <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={({ html, text }) => this.handleEditorChange({ html, text })} />
 
-                    <button onClick={() => this.handleOnchangeSaveMarkdown()}>Lưu thông tin</button>
+
                     <br></br>
+                </div>
+                <div className="container mb-5 m-auto">
+                    <button className="btn btn-success p-3" onClick={() => this.handleOnchangeSaveMarkdown()}>LƯU THÔNG TIN</button>
                 </div>
             </>
         )
